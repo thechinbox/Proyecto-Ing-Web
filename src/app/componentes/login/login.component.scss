@@ -4,22 +4,41 @@ input{
 }
 button{
     border-radius: 10px;
-    background-color: rgb(2, 7, 32);
-}
-img {
-    width: 100%;
-    height: 100%; 
-    object-fit: contain;
+    color: white;
 }
 h2{
     font-size: xx-large;
 }
+a,a:hover,a:checked,a:link,a:visited{
+  text-decoration: none;
+}
+a:hover{
+    color: black;
+}
 
-.full{
-    width: 100%;
+#rem{
+    width: 15px;
+    height: 15px;
+    top: -1px;
+}
+
+.trans{
+    color: rgba(128, 128, 128, 0.651);
+}
+
+.darkblue{
+    color:rgb(26, 29, 39);
+}
+.bg-darkblue{
+    background-color: rgb(26, 29, 39);
 }
 .centrado{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+.left{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
 }
