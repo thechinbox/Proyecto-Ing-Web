@@ -1,1 +1,23 @@
-<p>header works! jjjjjj</p>
+<nav>
+    <ul>
+        <div class="buttons-container">
+            <li class="boton"><a class="nombre-boton" [routerLink]="['/']" routerLinkActive="router-link-active">aplicacion</a></li>
+            <li class="boton"><a class="nombre-boton" [routerLink]="['/Certificados']" routerLinkActive="router-link-active">Certificados</a></li>
+            <li class="boton"><a class="nombre-boton" [routerLink]="['/Cursos']" routerLinkActive="router-link-active">Cursos</a></li>
+            <li class="boton"><a class="nombre-boton" [routerLink]="['/Bolsa']" routerLinkActive="router-link-active">Bolsa</a></li>
+            
+            <div class="input-group">
+                <input type="text" placeholder="Buscar en aplicación" formControlName="Buscar" class="buscar">
+                <div class="input-group-text"><span class="material-icons">
+                    search
+                    </span></div>
+                </div>
+            <li class="boton"><a class="nombre-boton" [routerLink]="['/Notificaciones']" routerLinkActive="router-link-active"><span class="material-icons">
+                notifications
+                </span></a></li>
+            <li class="boton"><a class="nombre-boton" [routerLink]="['/Usuario']" routerLinkActive="router-link-active"><span class="material-icons">
+                account_circle
+                </span></a></li>
+        </div>
+    </ul>
+</nav>
