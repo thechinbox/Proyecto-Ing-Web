@@ -5,3 +5,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.centrado{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.left{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
