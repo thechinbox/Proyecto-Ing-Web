@@ -1,1 +1,98 @@
-<p>registro works!</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="//unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="//unpkg.com/bootstrap-select@1.12.4/dist/css/bootstrap-select.min.css" type="text/css" />
+  <link rel="stylesheet" href="//unpkg.com/bootstrap-select-country@4.0.0/dist/css/bootstrap-select-country.min.css" type="text/css" />
+
+  <script src="//unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  <script src="//unpkg.com/bootstrap-select@1.12.4/dist/js/bootstrap-select.min.js"></script>
+  <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Registrarse</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="fn">Nombres</label>  
+  <div class="col-md-4">
+  <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="ln">Apellidos</label>  
+  <div class="col-md-4">
+  <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cmpny">Documento</label>  
+  <div class="col-md-4">
+  <input id="docu" name="docu" type="text" placeholder="Documento" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-4 control-label" for="contrasena">contraseña</label>  
+    <div class="col-md-4">
+    <input id="contrasena" name="contrasena" type="password" class="form-control" placeholder="contraseña *"  required="">
+</div>
+</div>
+
+<div class="form-group">
+        <label class="col-md-4 control-label" for="selectbasic">Select Basic</label>
+        <div class="col-md-4">
+            <select class="selectpicker countrypicker"></select>
+        </div>
+</div>  
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="city">City</label>  
+  <div class="col-md-4">
+  <input id="city" name="city" type="text" placeholder="city" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="phone">Numero de telefono</label>  
+  <div class="col-md-4">
+  <input id="phone" name="phone" type="text" placeholder="numero de telefono" class="form-control input-md" required="">
+    
+  </div>
+
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+  </div>
+</div>
+<script>
+    $('.countrypicker').countrypicker();
+  </script>
+</fieldset>
+</form>
