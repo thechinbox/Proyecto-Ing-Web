@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   constructor(public Form:FormBuilder) {
     this.formulario = this.Form.group({
-      email:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.email])]
+      email:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.email])],
+      password:["",Validators.compose([Validators.nullValidator, Validators.required])]
     })
   }
 
