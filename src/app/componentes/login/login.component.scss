@@ -2,3 +2,15 @@ input{
     border-radius: 10px;
     border-color: rgba(83, 83, 83, 0.603);
 }
+button{
+    border-radius: 10px;
+    background-color: rgb(2, 7, 32);
+}
+.full{
+    width: 100%;
+}
+.centrado{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
