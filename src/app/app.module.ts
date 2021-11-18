@@ -8,13 +8,15 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './componentes/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
