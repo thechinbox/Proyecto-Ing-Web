@@ -19,7 +19,7 @@
     margin-right: 5px;
     color: white;
 }
-.buscar{
+.form-control{
     background-color: rgba(49, 63, 79, 1);
     height: 30px;
     color:white;
@@ -46,14 +46,13 @@
    
 }
 .grupo{
-    
     display: flex;
     flex-direction: row;
 }
 .material-icons{
     font-size: 30px;
 }
-.form-control{
+.input-group-text{
     height: 30px;
     width: 40px;
     display: flex;
