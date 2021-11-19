@@ -7,6 +7,8 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSelectCountryModule } from "@angular-material-extensions/select-country";
+import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './componentes/home/home.component';
 
@@ -17,13 +19,16 @@ import { HomeComponent } from './componentes/home/home.component';
     RegistroComponent,
     LoginComponent,
     HomeComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectCountryModule.forRoot('es'),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

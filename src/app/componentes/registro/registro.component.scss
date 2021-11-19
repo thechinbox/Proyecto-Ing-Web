@@ -1,0 +1,25 @@
+#side {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/577ba8c9f5e231f12b5e2341/1496527241250-VJRAZLD671X2E0014FD1/No+Noise.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    height: 100vh;
+    max-width: 100vw;
+}
+button{
+    color: white;
+}
+input,select{
+    border-radius: 10px;
+    border-color: rgba(83, 83, 83, 0.329);
+    height: 50px;
+    font-size: large;
+}
+mat-select-country{
+    border-radius: 10px;
+    border-color: rgba(83, 83, 83, 0.329);
+    height: 50px;
+    font-size: large;
+}
+.control-label{
+    margin-inline-start: 10px;
+}

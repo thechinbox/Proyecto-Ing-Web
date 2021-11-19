@@ -5,6 +5,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.darkblue{
+    color:rgb(26, 29, 39);
+}
+.bg-darkblue{
+    background-color: rgb(26, 29, 39);
+}
 .centrado{
     display: flex;
     flex-wrap: wrap;
@@ -14,4 +22,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
+}
+.right{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:right;
 }

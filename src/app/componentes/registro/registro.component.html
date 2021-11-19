@@ -1,98 +1,86 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" href="//unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="//unpkg.com/bootstrap-select@1.12.4/dist/css/bootstrap-select.min.css" type="text/css" />
-  <link rel="stylesheet" href="//unpkg.com/bootstrap-select-country@4.0.0/dist/css/bootstrap-select-country.min.css" type="text/css" />
+<div class="container-fluid">
+  <div class="row">
+    <div id="side" class="col-lg-4 col-12">
 
-  <script src="//unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
-  <script src="//unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-  <script src="//unpkg.com/bootstrap-select@1.12.4/dist/js/bootstrap-select.min.js"></script>
-  <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<form class="form-horizontal">
-<fieldset>
-
-<!-- Form Name -->
-<legend>Registrarse</legend>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="fn">Nombres</label>  
-  <div class="col-md-4">
-  <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="ln">Apellidos</label>  
-  <div class="col-md-4">
-  <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="cmpny">Documento</label>  
-  <div class="col-md-4">
-  <input id="docu" name="docu" type="text" placeholder="Documento" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="email">Email</label>  
-  <div class="col-md-4">
-  <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<div class="form-group">
-    <label class="col-md-4 control-label" for="contrasena">contraseña</label>  
-    <div class="col-md-4">
-    <input id="contrasena" name="contrasena" type="password" class="form-control" placeholder="contraseña *"  required="">
-</div>
-</div>
-
-<div class="form-group">
-        <label class="col-md-4 control-label" for="selectbasic">Select Basic</label>
-        <div class="col-md-4">
-            <select class="selectpicker countrypicker"></select>
+    </div> 
+    <div class="col-lg-8 col-12">
+      <form class="row"> 
+        <div class="col-12 my-5 centrado">
+          <h1>Registrarse</h1>
         </div>
-</div>  
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="city">City</label>  
-  <div class="col-md-4">
-  <input id="city" name="city" type="text" placeholder="city" class="form-control input-md" required="">
-    
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 ms-5 control-label" for="Nombres">Nombres</label>  
+            <div class="col-12">
+              <input id="Nombres" name="Nombres" type="text" placeholder="Nombres" class="form-control-lg w-100" >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="Apellidos">Apellidos</label>  
+            <div class="col-12">
+              <input id="Apellidos" name="Apellidos" type="text" placeholder="Apellidos" class="form-control-lg w-100" > 
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="email">Email</label>  
+            <div class="col-12">
+              <input id="Email" name="Email" type="text" placeholder="Email" class="form-control-lg w-100" >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="pais">País</label>
+            <div class="col-12" >
+              <select class="form-control-lg" name="pais" id="pais">
+                <option value="" disabled selected>Select Country</option>
+                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+              </select>
+            </div>
+          </div>  
+        </div>
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="contrasena">Contraseña</label>  
+            <div class="col-12">
+              <input id="contrasena" name="contrasena" type="password" class="form-control-lg w-100" placeholder="Contraseña *" >
+            </div>
+        </div>
+        </div>
+        
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="city">Ciudad</label>  
+            <div class="col-12">
+              <input id="city" name="city" type="text" placeholder="Ciudad" class="form-control-lg w-100"> 
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="cmpny">Documento</label>  
+            <div class="col-12">
+              <input id="docu" name="docu" type="text" placeholder="Documento" class="form-control-lg w-100" >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 mb-3">
+          <div class="form-group">
+            <label class="col-12 control-label" for="Telefono">Telefono</label>  
+            <div class="col-12">
+              <input id="Telefono" name="Telefono" type="text" placeholder="Telefono" class="form-control-lg w-100" >
+            </div>
+          </div>
+        </div>
+        <legend class="col-12 mt-3"></legend>
+        <div class="col-12 my-5 right">
+          <button id="submit" name="submit" class="btn btn-lg bg-darkblue w-25 gh">Registrarse</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="phone">Numero de telefono</label>  
-  <div class="col-md-4">
-  <input id="phone" name="phone" type="text" placeholder="numero de telefono" class="form-control input-md" required="">
-    
-  </div>
-
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">SUBMIT</button>
-  </div>
-</div>
-<script>
-    $('.countrypicker').countrypicker();
-  </script>
-</fieldset>
-</form>
