@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-7 d-flex justify-content-start">
-            <img src="https://previews.123rf.com/images/nigelspiers/nigelspiers1308/nigelspiers130800001/21754579-una-vista-panor%C3%A1mica-vertical-de-la-ic%C3%B3nica-torre-eiffel-y-los-jardines-en-un-d%C3%ADa-caluroso-de-verano.jpg" class="img-fluid w-100">
+        <div class="col-12 col-md-7 " id="side">
+
         </div>
-        <div class="col-12 col-md-5">
+        <div class="col-12 col-md-5 ">
             <h2 class="centrado my-5">Inicio de Sesion</h2>
             <form [formGroup]="formulario" class="row " novalidate>                
                 <div class="col-12 mb-5 ">
@@ -11,7 +11,7 @@
                         <div class="col-12">
                             <label for="email">Email </label>
                         </div>
-                        <div class="col-12 ">
+                        <div class="col-12 px-md-5">
                             <input placeholder="Email" class="form-control-lg w-100" id="email" type="email" formControlName="email">  
                             <div class="row" *ngIf="formulario.controls['email'].invalid && (formulario.controls['email'].dirty || formulario.controls['email'].touched)" class="alert alert-danger">
                                 <div class="col-12 centrado" *ngIf="formulario.controls['email'].hasError('required')" >
@@ -23,31 +23,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-4 px-5">
+                    <div class="row mb-5 px-5">
                         <div class="col-12">
                             <label for="password">Contraseña </label>
                         </div>
-                        <div class="col-12 ">
+                        <div class="col-12 px-md-5">
                             <input placeholder="Contraseña" class="form-control-lg  w-100" id="password" type="password" formControlName="password" >  
                         </div>
                     </div>
-                    <div class="row px-5 mb-2">
-                        <div class="col-12 trans">
-                            <label for="rem" class="mr-4">Recordar Contraseña: </label>
-                            <input class="form-check-input " id="rem" type="checkbox" >  
+                    <div class="row px-5 mb-2 ">
+                        <div class="col-12 mb-3 trans">
+                            <label for="rem">Recordar Contraseña: </label>
+                            <input class="form-check-input ms-5" id="rem" type="checkbox" >  
                         </div>
+                        <div class="col-12">
+                            <a id="o" [routerLink]="''">¿Olvidaste tu Contraseña?</a>
+                        </div>
+                        
                     </div>  
-                    <div class="row px-5">
-                        <div class="col-12 ">
-                            <a class="trans" [routerLink]="''">¿Olvidaste tu Contraseña?</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-12 centrado mb-4">
                     <button type="button" class="btn-lg w-50 bg-darkblue">Iniciar Sesión</button>
                 </div>
                 <div class="col-12 centrado">
                     <a class="darkblue" [routerLink]="''">Iniciar Sesión como empresa o profesional</a>
+                </div>
+                <div class="col-12 centrado">
+                    <img src="data:image/png;base64,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">
                 </div>
             </form>   
         </div>
