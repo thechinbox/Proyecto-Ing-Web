@@ -36,8 +36,8 @@
           <div class="form-group">
             <label class="col-12 control-label" for="pais">País</label>
             <div class="col-12" >
-              <select class="form-control-lg" name="pais" id="pais">
-                <option value="" disabled selected>Select Country</option>
+              <select class=" form-select form-select-lg " name="pais" id="pais">
+                <option disabled selected>  </option>
                 <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
               </select>
             </div>

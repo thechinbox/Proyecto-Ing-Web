@@ -8,18 +8,20 @@
 button{
     color: white;
 }
-input,select{
+input{
     border-radius: 10px;
     border-color: rgba(83, 83, 83, 0.329);
     height: 50px;
     font-size: large;
 }
-mat-select-country{
+select{
     border-radius: 10px;
     border-color: rgba(83, 83, 83, 0.329);
     height: 50px;
+    max-width: 100%;
     font-size: large;
 }
+
 .control-label{
     margin-inline-start: 10px;
 }
