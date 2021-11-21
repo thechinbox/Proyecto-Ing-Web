@@ -4,23 +4,39 @@
 
     </div> 
     <div class="col-lg-8 col-12">
-      <form class="row"> 
+      <form [formGroup]="formulario" class="row" novalidate > 
         <div class="col-12 my-5 centrado">
           <h1>Registrarse</h1>
         </div>
         <div class="col-md-6 col-12 mb-3">
           <div class="form-group">
-            <label class="col-12 ms-5 control-label" for="Nombres">Nombres</label>  
+            <label class="col-12 ms-5 control-label" for="nombres">Nombres</label>  
             <div class="col-12">
-              <input id="Nombres" name="Nombres" type="text" placeholder="Nombres" class="form-control-lg w-100" >
+              <input id="Nombres" formControlName="nombres" type="text" placeholder="Nombres" class="form-control-lg w-100" >
+              <div *ngIf="formulario.controls['nombres'].invalid && (formulario.controls['nombres'].dirty || formulario.controls['nombres'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['nombres'].hasError('required')">
+                    <p>Debe ingresar su nombre completo.</p>
+                </div>
+                <div *ngIf="formulario.controls['nombres'].hasError('pattern')">
+                    <p>El nombre no debe contener numeros.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-12 mb-3">
           <div class="form-group">
-            <label class="col-12 control-label" for="Apellidos">Apellidos</label>  
+            <label class="col-12 control-label" for="apellidos">Apellidos</label>  
             <div class="col-12">
-              <input id="Apellidos" name="Apellidos" type="text" placeholder="Apellidos" class="form-control-lg w-100" > 
+              <input id="Apellidos" formControlName="apellidos" type="text" placeholder="Apellidos" class="form-control-lg w-100" > 
+              <div *ngIf="formulario.controls['apellidos'].invalid && (formulario.controls['apellidos'].dirty || formulario.controls['apellidos'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['apellidos'].hasError('required')">
+                    <p>Debe ingresar sus apellidos.</p>
+                </div>
+                <div *ngIf="formulario.controls['apellidos'].hasError('pattern')">
+                    <p>Los apellidos no deben contener numeros.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -28,7 +44,15 @@
           <div class="form-group">
             <label class="col-12 control-label" for="email">Email</label>  
             <div class="col-12">
-              <input id="Email" name="Email" type="text" placeholder="Email" class="form-control-lg w-100" >
+              <input id="Email" formControlName="email" type="text" placeholder="Email" class="form-control-lg w-100" >
+              <div *ngIf="formulario.controls['email'].invalid && (formulario.controls['email'].dirty || formulario.controls['email'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['email'].hasError('required')">
+                    <p>Debe ingresar su Email.</p>
+                </div>
+                <div *ngIf="formulario.controls['email'].hasError('email')">
+                    <p>El formato del email es incorrecto.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -36,10 +60,14 @@
           <div class="form-group">
             <label class="col-12 control-label" for="pais">País</label>
             <div class="col-12" >
-              <select class=" form-select form-select-lg " name="pais" id="pais">
-                <option disabled selected>  </option>
-                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+              <select class=" form-select form-select-lg w-100" formControlName="pais" id="pais">
+                <option *ngFor="let country of countries" [value]="[country.name_es, country.dial_code]">{{country.name_es}}</option>
               </select>
+              <div *ngIf="formulario.controls['pais'].invalid && (formulario.controls['pais'].dirty || formulario.controls['pais'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['pais'].hasError('required')">
+                    <p>Debe seleccionar el pais en el cual reside.</p>
+                </div>
+              </div>
             </div>
           </div>  
         </div>
@@ -47,7 +75,15 @@
           <div class="form-group">
             <label class="col-12 control-label" for="contrasena">Contraseña</label>  
             <div class="col-12">
-              <input id="contrasena" name="contrasena" type="password" class="form-control-lg w-100" placeholder="Contraseña *" >
+              <input id="contrasena" formControlName="contrasena" type="password" class="form-control-lg w-100" placeholder="Contraseña *" >
+              <div *ngIf="formulario.controls['contrasena'].invalid && (formulario.controls['contrasena'].dirty || formulario.controls['contrasena'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['contrasena'].hasError('required')">
+                    <p>Debe ingresar una contraseña de al menos 8 caracteres.</p>
+                </div>
+                <div *ngIf="formulario.controls['contrasena'].hasError('minlength')">
+                  <p>La contraseña debe tener al menos ocho caracteres.</p>
+              </div>
+              </div>
             </div>
         </div>
         </div>
@@ -56,23 +92,33 @@
           <div class="form-group">
             <label class="col-12 control-label" for="city">Ciudad</label>  
             <div class="col-12">
-              <input id="city" name="city" type="text" placeholder="Ciudad" class="form-control-lg w-100"> 
+              <input id="city" formControlName="city" type="text" placeholder="Ciudad" class="form-control-lg w-100"> 
+              <div *ngIf="formulario.controls['city'].invalid && (formulario.controls['city'].dirty || formulario.controls['city'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['city'].hasError('required')">
+                    <p>Debe ingresar la ciudad en la que reside.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-12 mb-3">
           <div class="form-group">
-            <label class="col-12 control-label" for="cmpny">Documento</label>  
+            <label class="col-12 control-label" for="docu">Documento</label>  
             <div class="col-12">
-              <input id="docu" name="docu" type="text" placeholder="Documento" class="form-control-lg w-100" >
+              <input id="docu" formControlName="docu" type="text" placeholder="Documento" class="form-control-lg w-100" >
             </div>
           </div>
         </div>
         <div class="col-md-6 col-12 mb-3">
           <div class="form-group">
-            <label class="col-12 control-label" for="Telefono">Telefono</label>  
+            <label class="col-12 control-label" for="telefono">Telefono</label>  
             <div class="col-12">
-              <input id="Telefono" name="Telefono" type="text" placeholder="Telefono" class="form-control-lg w-100" >
+              <div class="input-group">
+                <div class="w-25">
+                  <input type="text" id="telcode" readonly>
+                </div>
+                <input id="telefono" formControlName="telefono" type="text" placeholder="Telefono" class="form-control-lg w-75" >
+              </div>
             </div>
           </div>
         </div>
