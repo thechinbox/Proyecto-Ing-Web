@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Paises, countries } from 'src/app/interfaces/paises';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { registro } from 'src/app/interfaces/registro';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class RegistroComponent implements OnInit {
       docu:["",Validators.compose([Validators.nullValidator, Validators.required])],
       telefono:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.pattern("^[0-9]+$"), Validators.minLength(8)])], 
     })  
-    this.router=router; 
+    this.router=router;    
    }
 
   ngOnInit(): void {
@@ -45,12 +46,16 @@ export class RegistroComponent implements OnInit {
   }
 
   registrarse(){
-    let formulario:any = document.getElementById('formulario');
-    formulario.style.display = "none"
+    let hide:any = document.getElementById('formulario');
+    hide.style.display = "none"
     this.exito.style.display = "block"
     setTimeout(() => {
       this.router.navigateByUrl('', {skipLocationChange: true})
     }, 5000);  //5s
+    let form_val = this.formulario.value;
+    let reg_form:registro = {nombres:form_val.nombres,apellidos:form_val.apellidos,email:form_val.email,pais:form_val.pais.split(',')[0],
+      contraseña:form_val.contrasena,ciudad:form_val.city,documento:form_val.docu,telefono:form_val.pais.split(',')[1]+form_val.telefono}
+    console.log(reg_form);
     
   }
 }

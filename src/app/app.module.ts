@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './componentes/home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
