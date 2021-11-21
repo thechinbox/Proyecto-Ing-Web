@@ -5,11 +5,33 @@
     height: 100vh;
     max-width: 100vw;
 }
+#telcode{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#telefono{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+}
+.mensaje{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; 
+}
 
 button{
     color: white;
     font-size: x-large;
     border-radius: 10px;
+}
+button:disabled{
+    color: rgba(128, 128, 128, 0.651);
+    font-size: x-large;
 }
 input{
     border-radius: 10px;
@@ -28,13 +50,3 @@ select{
     margin-inline-start: 10px;
 }
 
-#telcode{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-#telefono{
-    border-top-right-radius: 10px;
-    border-top-left-radius: 0px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 0px;
-}

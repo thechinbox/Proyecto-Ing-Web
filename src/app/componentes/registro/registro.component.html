@@ -3,8 +3,15 @@
     <div id="side" class="col-lg-4 col-12">
 
     </div> 
+    <div id="exito" class="col-lg-8 col-12">
+      <div class="col-12 mensaje">
+        <h1 class="w-75">
+          Tu registro ha sido exitoso, en unos segundos te redireccionaremos hacia el inicio de sesión.
+        </h1>
+      </div>
+    </div>
     <div class="col-lg-8 col-12">
-      <form [formGroup]="formulario" class="row" novalidate > 
+      <form [formGroup]="formulario" id="formulario" class="row" (ngSubmit)="registrarse()" novalidate > 
         <div class="col-12 my-5 centrado">
           <h1>Registrarse</h1>
         </div>
@@ -78,10 +85,10 @@
               <input id="contrasena" formControlName="contrasena" type="password" class="form-control-lg w-100" placeholder="Contraseña *" >
               <div *ngIf="formulario.controls['contrasena'].invalid && (formulario.controls['contrasena'].dirty || formulario.controls['contrasena'].touched)" class="alert alert-danger">
                 <div *ngIf="formulario.controls['contrasena'].hasError('required')">
-                    <p>Debe ingresar una contraseña de al menos 8 caracteres.</p>
+                    <p>Debe ingresar una contraseña de al menos 6 caracteres.</p>
                 </div>
                 <div *ngIf="formulario.controls['contrasena'].hasError('minlength')">
-                  <p>La contraseña debe tener al menos ocho caracteres.</p>
+                  <p>La contraseña debe tener al menos 6 caracteres.</p>
               </div>
               </div>
             </div>
@@ -106,6 +113,11 @@
             <label class="col-12 control-label" for="docu">Documento</label>  
             <div class="col-12">
               <input id="docu" formControlName="docu" type="text" placeholder="Documento" class="form-control-lg w-100" >
+              <div *ngIf="formulario.controls['docu'].invalid && (formulario.controls['docu'].dirty || formulario.controls['docu'].touched)" class="alert alert-danger">
+                <div *ngIf="formulario.controls['docu'].hasError('required')">
+                    <p>Debe ingresar su numero de documento</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -118,13 +130,21 @@
                   <input type="text" id="telcode" readonly>
                 </div>
                 <input id="telefono" formControlName="telefono" type="text" placeholder="Telefono" class="form-control-lg w-75" >
+                <div *ngIf="formulario.controls['telefono'].invalid && (formulario.controls['telefono'].dirty || formulario.controls['telefono'].touched)" class="alert alert-danger">
+                  <div *ngIf="formulario.controls['telefono'].hasError('required')">
+                      <p>Debe ingresar su numero de telefono.</p>
+                  </div>
+                  <div *ngIf="formulario.controls['telefono'].hasError('pattern') || formulario.controls['telefono'].hasError('minlength')">
+                    <p>Debe ingresar un numero de telefono válido.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <legend class="col-12 mt-3"></legend>
-        <div class="col-12 my-5 right">
-          <button id="submit" name="submit" class="btn btn-lg bg-darkblue w-25 gh">Registrarse</button>
+        <legend class="col-12 mt-3 "></legend>
+        <div class="col-12 my-5  right">
+          <button id="submit" [disabled]="formulario.invalid" type="submit" class="btn btn-lg bg-darkblue w-25 gh">Registrarse</button>
         </div>
       </form>
     </div>
