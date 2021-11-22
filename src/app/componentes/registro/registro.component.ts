@@ -56,8 +56,9 @@ export class RegistroComponent implements OnInit {
     console.log(form_val.pais.split(',')[0]);
     
     console.log(reg_form);
-    this.http.POSTREGISTRO(reg_form).subscribe(datos=>
-      console.log(datos)     
+    this.http.POSTREGISTRO(reg_form).subscribe(datos=>{
+        console.log(datos)  
+      }  
     )
     setTimeout(() => {
       this.router.navigateByUrl('', {skipLocationChange: true})
