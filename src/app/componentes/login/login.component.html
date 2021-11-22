@@ -1,12 +1,15 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-7 " id="side">
-
-        </div>
+        <div class="col-12 col-md-7 " id="side"></div>
         <div class="col-12 col-md-5 ">
-            <h2 class="centrado my-5">Inicio de Sesion</h2>
-            <form [formGroup]="formulario" class="row " (ngSubmit)="login()" novalidate >                
-                <div class="col-12 mb-5 ">
+            <div class="col-12 my-5">
+                <h2 class="centrado ">Inicio de Sesion</h2>
+                <div class="centrado" id="error">
+                    <span class="centrado bg-danger w-50">Error al Iniciar Sesion</span>
+                </div>  
+            </div>
+            <div class="row"  >                
+                <form [formGroup]="formulario" (ngSubmit)="login()" class="col-12 mb-5 " novalidate>
                     <div class="row mb-4 px-5">
                         <div class="col-12">
                             <label for="email">Email </label>
@@ -29,22 +32,28 @@
                         </div>
                         <div class="col-12 px-md-5">
                             <input placeholder="Contraseña" class="form-control-lg  w-100" id="password" type="password" formControlName="password" >  
+                            <div class="row" *ngIf="formulario.controls['password'].invalid && (formulario.controls['password'].dirty || formulario.controls['password'].touched)" class="alert alert-danger">
+                                <div class="col-12 centrado" *ngIf="formulario.controls['password'].hasError('required')" >
+                                    <span> Debe ingresar su contraseña.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row px-5 mb-2 ">
                         <div class="col-12 mb-3 trans">
                             <label for="rem">Recordar Contraseña: </label>
-                            <input class="form-check-input ms-5" id="rem" type="checkbox" >  
+                            <input class="form-check-input ms-5" id="rem" formControlName="recordar" type="checkbox" >  
                         </div>
                         <div class="col-12">
                             <a id="o" [routerLink]="''">¿Olvidaste tu Contraseña?</a>
                         </div>
                         
+                    </div>
+                    <div class="col-12 mt-5 centrado ">
+                        <button type="submit" class="btn-lg w-50 bg-darkblue">Iniciar Sesión</button>
                     </div>  
-                </div>
-                <div class="col-12 centrado mb-4">
-                    <button type="submit" class="btn-lg w-50 bg-darkblue">Iniciar Sesión</button>
-                </div>
+                </form>
+                
                 <div class="col-12 centrado">
                     <a class="darkblue" [routerLink]="''">Iniciar Sesión como empresa o profesional</a>
                 </div>
@@ -60,7 +69,7 @@
                 <div class="col-12 mt-5 centrado">
                     <p class="trans w-75">Al registrarte en la Aplicación, aceptas nuestros Terminos y Política de privacidad.</p>
                 </div>
-            </form>   
+            </div>   
         </div>
     </div>
 </div>

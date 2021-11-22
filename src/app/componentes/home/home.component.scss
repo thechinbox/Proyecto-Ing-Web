@@ -2,5 +2,7 @@
     background-image: url("https://www.macmillandictionary.com/us/external/slideshow/full/Grey_full.png");
     background-repeat:no-repeat;
     background-size:cover;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
+    width: auto;
 }

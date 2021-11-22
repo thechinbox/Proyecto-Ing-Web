@@ -19,9 +19,11 @@ export class RegistroComponent implements OnInit {
   pais:any;
   exito:any
   estado:boolean = true;
-  router:Router;
 
-  constructor(public Form:FormBuilder, router:Router, private http:RegistroService) {
+  constructor(public Form:FormBuilder, public router:Router, private http:RegistroService) {
+    if(sessionStorage.getItem("rut") != null || localStorage.getItem("rut")  != null){
+      this.router.navigate(['home'])
+    }
     this.formulario = this.Form.group({
       nombres:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.pattern("^[a-zA-Z ]*$")])],
       apellidos:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.pattern("^[a-zA-Z ]*$")])],
