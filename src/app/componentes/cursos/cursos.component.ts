@@ -10,7 +10,7 @@ import { CursosService } from 'src/app/servicios/cursos/cursos.service';
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent implements OnInit {
-  cursos:Array<curso>|undefined;
+  cursos:Array<curso> | undefined;
 
   constructor(public router:Router, public http:CursosService) {
     if(sessionStorage.getItem("rut") == null ){
@@ -20,13 +20,16 @@ export class CursosComponent implements OnInit {
     }
     http.GETCURSOS().subscribe(datos=>{
       this.cursos = datos;
-      console.log(this.cursos);
     }); 
-    console.log(this.cursos);
-    
    }
 
   ngOnInit(): void {
+  }
+
+  traspaso(id:any){
+    sessionStorage.setItem("clavecurso",id)
+    console.log(sessionStorage.getItem("clavecurso"));
+    
   }
 
 }

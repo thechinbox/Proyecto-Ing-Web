@@ -1,0 +1,28 @@
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+.side{
+    background-image: url("https://www.macmillandictionary.com/us/external/slideshow/full/Grey_full.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height: 100vh;
+    max-height: 100%;
+    width: auto;
+}
+.bg-gray{
+    background-color: rgba(110, 109, 109, 0.295);
+    border-radius: 10px;
+}
+button{
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    padding: 15px;
+}
+img{
+    border-radius: 40px;
+}
+h1{
+    margin-inline-start: 10px;
+}
