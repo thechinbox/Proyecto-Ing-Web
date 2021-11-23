@@ -4,9 +4,6 @@ input{
     height: 45px;
     font-size: large;
 }
-label{
-    margin-inline-start: 20px;
-}
 button{
     border-radius: 10px;
     color: white;
@@ -16,6 +13,9 @@ button{
 }
 h2{
     font-size: xx-large;
+}
+img{
+    width:80%;
 }
 a,a:checked,a:link,a:visited{
   text-decoration: none;
@@ -33,17 +33,12 @@ a:hover{
     max-height: 100%;
     width: auto;
 }
-#o{
-    margin-inline-start: 20px;
-}
 #rem{
-    width: 15px;
-    height: 15px;
-    top: -1px;
+    margin-inline-start: 10px;
+    top:-16px
 }
-
-img{
-    width:80%;
+.input-title{
+    margin-inline-start: 40px;
 }
 
 

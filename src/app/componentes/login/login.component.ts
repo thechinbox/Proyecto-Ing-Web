@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           else{
             sessionStorage.setItem("rut", datos[0].rut)
           }
-          this.router.navigate([''])
+          this.router.navigate(['home'])
         }
       }
     )

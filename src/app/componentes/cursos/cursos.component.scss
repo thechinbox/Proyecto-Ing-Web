@@ -1,0 +1,35 @@
+.card, .card-img-top, .card-body{
+    border-radius: 10px;
+}
+.side{
+    background-image: url("https://www.macmillandictionary.com/us/external/slideshow/full/Grey_full.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height: 100vh;
+    max-height: 100%;
+    width: auto;
+}
+.material-icons-outlined{
+    font-size: 100px;
+}
+.btn-img{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.separador{
+    border-left: 1px solid rgba(83, 79, 79, 0.61);
+}
+label{
+    font-size: x-large;
+    color: rgb(12, 12, 46);
+}
