@@ -11,16 +11,22 @@ import { CursosService } from 'src/app/servicios/cursos/cursos.service';
 })
 export class CursosComponent implements OnInit {
   cursos:Array<curso> | undefined;
+  rut:any;
 
   constructor(public router:Router, public http:CursosService) {
     if(sessionStorage.getItem("rut") == null ){
       if(localStorage.getItem("rut") == null){
         this.router.navigate(['']);
+      }else{
+        http.GETCURSOS(localStorage.getItem("rut")).subscribe(datos=>{
+          this.cursos = datos;
+        }); 
       }
-    }
-    http.GETCURSOS().subscribe(datos=>{
-      this.cursos = datos;
-    }); 
+    }else{
+      http.GETCURSOS(sessionStorage.getItem("rut")).subscribe(datos=>{
+        this.cursos = datos;
+      }); 
+    } 
    }
 
   ngOnInit(): void {

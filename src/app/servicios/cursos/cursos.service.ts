@@ -19,8 +19,8 @@ export class CursosService {
   };
   constructor(private http:HttpClient) { }
   
-  GETCURSOS():Observable<any>{
-    return this.http.get(`${environment.hostname}/getcursos`)
+  GETCURSOS(rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getcursos`, JSON.stringify({"rut":rut}), this.HttpUploadOptions)
   }
   GETCURSO(clavecurso:any):Observable<any>{
     return this.http.post(`${environment.hostname}/getcurso`, JSON.stringify({"clavecurso":clavecurso}), this.HttpUploadOptions)
