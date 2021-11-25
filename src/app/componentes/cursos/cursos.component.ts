@@ -25,7 +25,7 @@ export class CursosComponent implements OnInit {
     }else{
       http.GETCURSOS(sessionStorage.getItem("rut")).subscribe(datos=>{
         this.cursos = datos;
-      }); 
+      });       
     } 
    }
 
@@ -34,8 +34,6 @@ export class CursosComponent implements OnInit {
 
   traspaso(id:any){
     sessionStorage.setItem("clavecurso",id)
-    console.log(sessionStorage.getItem("clavecurso"));
-    
   }
 
 }

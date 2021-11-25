@@ -32,7 +32,7 @@
                 <div *ngFor="let item of cursos" class="col-lg-6 col-12 centrado">
                     <div class="card w-100 " style="width: 18rem;">
                         <img class="card-img-top" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
-                        <button class="btn-img" (click)="traspaso(item.clavecurso)" [routerLink]="['/cursos', item.clavecurso]"><span class="material-icons-outlined"> play_arrow </span></button>
+                        <button class="btn-img" (click)="traspaso(item.clavecurso)" [routerLink]="['/curso']"><span class="material-icons-outlined"> play_arrow </span></button>
                         <div class="card-body">
                             <h3 class="card-title">{{item.clavecurso}} - {{item.nombrecurso}} </h3>
                             <p class="card-text">{{item.descripcion}}</p>

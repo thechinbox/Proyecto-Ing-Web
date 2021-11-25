@@ -17,10 +17,10 @@
             </div>
             <div class="row ">
                 <div class="col-lg-6 mb-2 centrado">
-                    <button type="button" [routerLink]="'/cursos'" class="btn bg-darkblue btn-lg">Buscar Otro curso</button>
+                    <button type="button"  [routerLink]="'/cursos'" class="btn bg-darkblue btn-lg">Buscar Otro curso</button>
                 </div>
                 <div class="col-lg-6 mb-2 centrado">
-                    <button type="button" class="btn bg-darkblue btn-lg">Comenzar este curso</button>
+                    <button type="button" (click)="participar()" class="btn bg-darkblue btn-lg">Comenzar este curso</button>
                 </div>
             </div>
         </div>

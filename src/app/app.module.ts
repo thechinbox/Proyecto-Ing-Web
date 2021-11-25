@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './componentes/home/home.component';
 import { CursosComponent } from './componentes/cursos/cursos.component';
 import { CursoComponent } from './componentes/cursos/curso/curso.component';
+import { MicursoComponent } from './componentes/cursos/miscursos/micurso/micurso.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CursoComponent } from './componentes/cursos/curso/curso.component';
     HomeComponent,
     CursosComponent,
     CursoComponent,
+    MicursoComponent,
   ],
   imports: [
     BrowserModule,

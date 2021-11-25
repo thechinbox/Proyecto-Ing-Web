@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { curso } from 'src/app/interfaces/curso';
+import { HomeService } from 'src/app/servicios/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(public router:Router) { 
+  cursos:any;
+  constructor(public router:Router, private http:HomeService) { 
+    this.cursos = new Array();
     if(sessionStorage.getItem("rut") == null ){
       if(localStorage.getItem("rut") == null){
         this.router.navigate(['']);
+      }else{
+        this.http.GETCURSOSPARTC(localStorage.getItem("rut")).subscribe(datos=>{
+          this.cursos = datos;
+          console.log(this.cursos);
+        })       
       }
-    }
+    }else{
+      this.http.GETCURSOSPARTC(sessionStorage.getItem("rut")).subscribe(datos=>{        
+        this.cursos = datos;
+        console.log(this.cursos);
+      }) 
+    }     
+
+    
   }
 
   ngOnInit(): void {
