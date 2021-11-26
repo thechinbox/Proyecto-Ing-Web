@@ -1,11 +1,16 @@
-
 .side {
     background-image: url("../../../assets/side.png");
     background-repeat:no-repeat;
     background-size:cover;
     min-height: 100vh;
     max-height: 100%;
-    width: auto;
+    width: 2px;
+}
+.border-right{
+    border-image: url("../../../assets/side.png") 30 round;
+    border-right: 5px black solid;
+    min-height: 100vh;
+    max-height: 100%;
 }
 .btn-img{
     position: absolute;

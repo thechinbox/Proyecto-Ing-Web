@@ -31,6 +31,7 @@ export class CursosService {
   GETCURSOPARTC(rut:any,clavecurso:any):Observable<any>{
     return this.http.post(`${environment.hostname}/getmicurso`, JSON.stringify({"rut":rut,"clavecurso":clavecurso}), this.HttpUploadOptions)
   }
-  
-
+  GETPROGRESO(rut:any,clavecurso:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getprogreso`, JSON.stringify({"rut":rut,"clavecurso":clavecurso}), this.HttpUploadOptions)
+  }
 }

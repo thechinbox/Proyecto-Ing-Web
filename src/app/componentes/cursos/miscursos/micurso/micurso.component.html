@@ -1,10 +1,57 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-1 d-none d-sm-block side">
+        <div class="col-md-1 d-none d-md-block side">
         </div>
-        <div class="col-10">
-
+        <div class="col-10 ">
+            <div class="row">
+                <div class="col-md-8 border-right">
+                    <div class="row mb-5">
+                        <div class="col-12 px-5 mt-md-5">
+                            <h1>{{curso.nombrecurso}}</h1>
+                            <div  class="col-12 ">
+                                <div class="row">
+                                    <div class="col-md col-12" *ngFor="let modulo of curso.modulos; let i = index" [attr.data-index]="i">
+                                        <div  class="row ">
+                                            <div id="progress-bar" class="col mb-3 centrado" *ngFor="let item of modulo.clases">
+                                                <button *ngIf="item.idclase != progreso.idclase" type="button" class="btn btn-lg bg-darkblue" disabled>a</button>
+                                                <button *ngIf="item.idclase == progreso.idclase" type="button" class="btn btn-lg bg-darkblue" >a</button>
+                                            </div>
+                                            <div class="col-12 centrado div-progressbar" *ngIf="i < curso.modulos.length -1 ">
+                                                <h5>MODULO {{modulo.nromodulo}}: {{modulo.nombre}}</h5>
+                                            </div>
+                                            <div class="col-12 centrado" *ngIf="i == curso.modulos.length -1 ">
+                                                <h5>MODULO {{modulo.nromodulo}}: {{modulo.nombre}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                    <div class="col-12 ">
+                                        <div class="card w-100">
+                                            <video id="video" controls>
+                                                <source src="http://techslides.com/demos/sample-videos/small.ogv">
+                                            </video>
+                                            <div class="card-body bg-card">
+                                              <h5 class="card-title">{{curso.clavecurso}} - {{curso.nombrecurso}}</h5>
+                                              <p class="card-text">{{curso.descripcion}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Cursos Relacionados</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-5">
+                    <div class="col-12">
+                        <textarea placeholder="Escribe un comentario"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-1 d-none d-sm-block side">
         </div>

@@ -6,3 +6,36 @@
     max-height: 100%;
     width: auto;
 }
+.border-right{
+    border-image: url("../../../../../assets/side.png") 30 round;
+    border-right: 5px black solid;
+    min-height: 100vh;
+    max-height: 100%;
+}
+.div-progressbar{
+    border-right: 5px rgb(15, 15, 46) solid;
+}
+.card, video, .card-body{
+    border-radius: 10px;
+}
+.w-3{
+    width: 3%;
+}
+textarea{
+    resize: none;
+    width: 100%;
+    height: 100px;
+}
+button{
+    color: white;
+    border-radius: 100px;
+}
+button:disabled{
+    background-color:gray; 
+    opacity:inherit;
+}
+#progress-bar{
+    background-image: url("../../../../../assets/bg-progress.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

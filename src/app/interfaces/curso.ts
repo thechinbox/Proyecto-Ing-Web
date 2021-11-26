@@ -1,8 +1,8 @@
 import { modulo } from "./modulo";
 export interface curso{
-    clavecurso:BigInteger;
+    clavecurso:number;
     profesor:String;
     nombrecurso:String;
     descripcion:String;
-    modulos:Array<modulo> | undefined;
+    modulos:Array<modulo>;
 }
