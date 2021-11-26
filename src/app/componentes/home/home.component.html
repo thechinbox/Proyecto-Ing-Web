@@ -1,24 +1,23 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="row">
-        <div id="side" class="col-1">
+        <div class="col-1  d-none d-md-block side">
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="row">
                 <!-- Seccion donde se muestran los cursos activos.-->
                 <div class="col-12 mt-5 ">
                     <h2>Continua con tus Cursos</h2>
                     <div class="row ">
-                        <div *ngFor="let item of cursos" class="col-lg-6 mb-2  ">
-                            <div class="card w-100" >
-                                <button class="btn-img" [routerLink]="['/miscursos', item.clavecurso]"><span class="material-icons-outlined"> play_arrow </span></button>
+                        <div *ngFor="let item of cursos; index as i " class="col-lg-6 mb-2  ">
+                            <div class="card w-100" *ngIf="i <= 1">
+                                <button class="btn-img" (click)="traspaso(item.clavecurso)" [routerLink]="['/miscurso', item.clavecurso]"><span class="material-icons-outlined"> play_arrow </span></button>
                                 <img class="card-img-top" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
-                                <div class="card-body">
+                                <div class="card-body bg-card">
                                   <h5 class="card-title">{{item.clavecurso}} - {{item.nombrecurso}}</h5>
                                   <p class="card-text">{{item.descripcion}}</p>
                                 </div>
-                              </div>
-
+                            </div>
                         </div>
                         <div class="col-12 my-4 centrado">
                             <button  class="btn-lg bg-darkblue"> Ver mas Cursos</button>                  
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             <div class="row ">
                 <!-- Seccion de informaciones.-->
                 <div class="col-12 mt-5 mb-2">
@@ -55,7 +54,7 @@
 
             </div>
         </div>
-        <div id="side" class="col-1">
+        <div class="col-1 d-none d-md-block side">
         </div>
     </div>
 </div>

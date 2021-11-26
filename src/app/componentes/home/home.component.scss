@@ -1,5 +1,6 @@
-#side {
-    background-image: url("https://www.macmillandictionary.com/us/external/slideshow/full/Grey_full.png");
+
+.side {
+    background-image: url("../../../assets/side.png");
     background-repeat:no-repeat;
     background-size:cover;
     min-height: 100vh;
@@ -19,6 +20,9 @@
     cursor: pointer;
     border-radius: 5px;
 
+}
+.material-icons-outlined{
+    font-size: 100px;
 }
 button{
     color: white;

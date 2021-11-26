@@ -31,6 +31,9 @@ export class HomeComponent implements OnInit {
     
   }
 
+  traspaso(clavecurso:string){
+    sessionStorage.setItem("clavecurso", clavecurso)
+  }
   ngOnInit(): void {
     
   }

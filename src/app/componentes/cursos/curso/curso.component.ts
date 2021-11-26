@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CursosService } from 'src/app/servicios/cursos/cursos.service';
 import { clase } from 'src/app/interfaces/clase';
+import { modulo } from 'src/app/interfaces/modulo';
 
 @Component({
   selector: 'app-curso',
@@ -9,7 +10,7 @@ import { clase } from 'src/app/interfaces/clase';
   styleUrls: ['./curso.component.scss']
 })
 export class CursoComponent implements OnInit, OnDestroy {
-  clases:Array<clase> | undefined;
+  modulos:Array<modulo> | undefined;
 
   constructor(public router:Router, public http:CursosService) {
     
@@ -42,12 +43,12 @@ export class CursoComponent implements OnInit, OnDestroy {
         this.router.navigate(['']);
       }else{
         this.http.GETCURSO(localStorage.getItem("rut"),sessionStorage.getItem("clavecurso")).subscribe(datos=>{
-          this.clases = datos;
+          this.modulos = datos;
         })      
       }
     }else{
       this.http.GETCURSO(sessionStorage.getItem("rut"),sessionStorage.getItem("clavecurso")).subscribe(datos=>{
-        this.clases = datos;
+        this.modulos = datos;
       })
     } 
   }

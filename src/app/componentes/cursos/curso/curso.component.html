@@ -5,12 +5,14 @@
         <div class="col-10">
             <h1 class="m-5"> Contenido de Este Curso </h1>
             <div class="row centrado ">
-                <div *ngFor="let item of clases" class="col-10 mb-5 bg-gray">
-                    <div class="row">
-                        <img class="col-md-4 p-4" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
-                        <div class="col-md-8 mt-md-5" >
-                            <h3> {{item.nombremodulo}} - {{item.nombreclase}} </h3>
-                            <p> {{item.descripcionclase}} </p>
+                <div *ngFor="let item of modulos" class="col-12 centrado">
+                    <div *ngFor="let clase of item.clases"  class="col-10 mb-5 bg-card">
+                        <div class="row">
+                            <img class="col-md-4 p-4" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
+                            <div class="col-md-8 mt-md-5 " >
+                                <h3>  {{item.nromodulo}}.-{{item.nombre}} : {{clase.nroclase}}-{{clase.nombre}} </h3>
+                                <p> {{clase.descripcion}} </p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'cursos', component:CursosComponent},
   {path:'curso', component:CursoComponent},
-  {path:'miscursos/:id', component:MicursoComponent}
+  {path:'miscurso/:id', component:MicursoComponent}
 ];
 
 @NgModule({
