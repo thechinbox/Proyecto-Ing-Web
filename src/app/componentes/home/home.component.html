@@ -11,7 +11,7 @@
                     <div class="row ">
                         <div *ngFor="let item of cursos; index as i " class="col-lg-6 mb-2  ">
                             <div class="card w-100" *ngIf="i <= 1">
-                                <button class="btn-img" (click)="traspaso(item.clavecurso)" [routerLink]="['/miscurso', item.clavecurso]"><span class="material-icons-outlined"> play_arrow </span></button>
+                                <button class="btn-img" (click)="traspaso(item.clavecurso)" [routerLink]="['/micurso', item.clavecurso]"><span class="material-icons-outlined"> play_arrow </span></button>
                                 <img class="card-img-top" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
                                 <div class="card-body bg-card">
                                   <h5 class="card-title">{{item.clavecurso}} - {{item.nombrecurso}}</h5>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="row ">
                 <!-- Seccion de informaciones.-->
                 <div class="col-12 mt-5 mb-2">

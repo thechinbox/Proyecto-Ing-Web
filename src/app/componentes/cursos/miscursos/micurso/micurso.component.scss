@@ -21,6 +21,14 @@
 .w-3{
     width: 3%;
 }
+.bg-vista{
+    background-color: rgb(51,78,113);
+}
+.actual{
+    outline: rgb(51,78,113) 2px solid;
+    border: white 4px solid;
+    border-radius: 20px;
+}
 textarea{
     resize: none;
     width: 100%;
@@ -29,13 +37,18 @@ textarea{
 button{
     color: white;
     border-radius: 100px;
+    font-size: 0px;
+    height: 30px;
+    width: 30px;
 }
+
 button:disabled{
-    background-color:gray; 
+    background-color:rgb(221, 221, 221); 
     opacity:inherit;
 }
 #progress-bar{
-    background-image: url("../../../../../assets/bg-progress.png");
+    background: linear-gradient(rgb(51,78,113),rgb(51,78,113));
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 5px;
+    background-position: 0 center;
 }

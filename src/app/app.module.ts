@@ -13,7 +13,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { CursosComponent } from './componentes/cursos/cursos.component';
 import { CursoComponent } from './componentes/cursos/curso/curso.component';
 import { MicursoComponent } from './componentes/cursos/miscursos/micurso/micurso.component';
-
+import { ClaseComponent } from './componentes/cursos/miscursos/micurso/clase/clase.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +24,7 @@ import { MicursoComponent } from './componentes/cursos/miscursos/micurso/micurso
     CursosComponent,
     CursoComponent,
     MicursoComponent,
+    ClaseComponent,
   ],
   imports: [
     BrowserModule,
