@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CertificadosComponent } from './componentes/certificados/certificados.component';
 import { CursoComponent } from './componentes/cursos/curso/curso.component';
 import { CursosComponent } from './componentes/cursos/cursos.component';
 import { ClaseComponent } from './componentes/cursos/miscursos/micurso/clase/clase.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'cursos', component:CursosComponent},
   {path:'curso', component:CursoComponent},
-  {path:'micurso/:id', component:MicursoComponent}
+  {path:'micurso/:id', component:MicursoComponent},
+  {path:'certificados', component:CertificadosComponent}
 ];
 
 @NgModule({

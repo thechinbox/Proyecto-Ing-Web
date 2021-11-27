@@ -14,6 +14,12 @@ import { CursosComponent } from './componentes/cursos/cursos.component';
 import { CursoComponent } from './componentes/cursos/curso/curso.component';
 import { MicursoComponent } from './componentes/cursos/miscursos/micurso/micurso.component';
 import { ClaseComponent } from './componentes/cursos/miscursos/micurso/clase/clase.component';
+import { CertificadosComponent } from './componentes/certificados/certificados.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { CertificadoComponent } from './componentes/certificados/certificado/certificado.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +31,8 @@ import { ClaseComponent } from './componentes/cursos/miscursos/micurso/clase/cla
     CursoComponent,
     MicursoComponent,
     ClaseComponent,
+    CertificadosComponent,
+    CertificadoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,9 @@ import { ClaseComponent } from './componentes/cursos/miscursos/micurso/clase/cla
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

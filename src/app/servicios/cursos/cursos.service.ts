@@ -2,6 +2,7 @@ import { HttpHeaders,HttpClient } from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { progreso } from 'src/app/interfaces/progreso';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,13 @@ export class CursosService {
   }
   GETPROGRESO(rut:any,clavecurso:any):Observable<any>{
     return this.http.post(`${environment.hostname}/getprogreso`, JSON.stringify({"rut":rut,"clavecurso":clavecurso}), this.HttpUploadOptions)
+  }
+  POSTPROGRESO(progreso:progreso,rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postprogreso`, 
+                          JSON.stringify({"idmodulo":progreso.idmodulo,"idclase":progreso.idclase,"rut":rut,"clavecurso":progreso.clavecurso}), this.HttpUploadOptions)
+  }
+  POSTFIN(progreso:progreso,rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postfin`, 
+                          JSON.stringify({"idmodulo":progreso.idmodulo,"idclase":progreso.idclase,"rut":rut,"clavecurso":progreso.clavecurso}), this.HttpUploadOptions)
   }
 }

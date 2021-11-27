@@ -1,0 +1,54 @@
+<div class="container-fluid" id="gray" >
+    <div class="row">
+        <div class="col-12">
+            <button type="button" (click)="exportAsPDF(data.nombre_curso)"><span class="material-icons-outlined">
+                file_download
+                </span></button>
+        </div>
+        <div id="certificado" class="col-12">
+            <div class="row ">
+                <div class="col-12 centrado">
+                    <h2>Applicación</h2>
+                </div>
+                <div class="col-12 centrado">
+                    <h4>Certifica a</h4>
+                </div>
+                <div class="col-12 centrado">
+                    <h1>{{data.nombre_estudiante}}</h1>
+                </div>
+                <div class="col-12 centrado">
+                    <h4>Por participar y aprobar</h4>
+                </div>
+                <div class="col-12 centrado">
+                    <h1>{{data.nombre_curso}}</h1>
+                </div>
+                <div class="col-4 left">
+                    <div class="border-top w-100">
+                        <div class="centrado">
+                            <span >Juan Carlos Rueda</span>
+                        </div>
+                        <div class="centrado">
+                            <span >CEO Applicación</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 centrado">
+                    <p>El curso fue aprobado el dia </p>
+                    <h3>{{data.fechaaprob |  date:'dd/MM/YYYY'}}</h3>
+                </div>
+                <div class="col-4 left">
+                    <div class="border-top w-100">
+                        <div class="centrado">
+                            <span >{{data.profesor}}</span>
+                        </div>
+                        <div class="centrado">
+                            <span >Profesor Curso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

@@ -96,8 +96,19 @@ export class MicursoComponent implements OnInit, OnDestroy {
       console.log(this.clase_progreso);
       console.log(this.modulo_progreso);
     }else if(status = "ok" && this.clase_progreso.idclase == idc){
-      console.log("curso terminado");
-      
+      if(sessionStorage.getItem("rut") != null){
+        this.http.POSTFIN(this.progreso, sessionStorage.getItem("rut")).subscribe(datos=>{
+          if(datos.status == "ok"){
+            this.router.navigate(['home'])
+          }
+        })
+      }else{
+        this.http.POSTFIN(this.progreso, localStorage.getItem("rut")).subscribe(datos=>{
+          if(datos.status == "ok"){
+            this.router.navigate(['home'])
+          }
+        })
+      }
     }
   }
 
@@ -107,5 +118,20 @@ export class MicursoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy():void{
     sessionStorage.removeItem("clavecurso")
+    console.log(this.progreso);
+    
+    if(sessionStorage.getItem("rut") != null){
+      this.http.POSTPROGRESO(this.progreso, sessionStorage.getItem("rut")).subscribe(datos=>{
+        if(datos.status == "ok"){
+          this.router.navigate(['home'])
+        }
+      })
+    }else{
+      this.http.POSTPROGRESO(this.progreso, localStorage.getItem("rut")).subscribe(datos=>{
+        if(datos.status == "ok"){
+          this.router.navigate(['home'])
+        }
+      })
+    }
   }
 }

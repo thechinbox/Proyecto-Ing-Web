@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1  d-none d-md-block side"></div>
+        <div class="col-md-10 ">
+            <div class="row">
+                <div class="col-12  p-md-5">
+                    <h2 class="mb-5">Cursos Terminados</h2>
+                    <div id="carousel" class="centrado ">
+                        <carousel [height]="getheight()" class="carousel-html-content " [cellsToShow]=3 >
+                            <div class="carousel-cell" *ngFor="let cert of certificados">
+                                <div class="card" style="width: 100%">
+                                    <img class="card-img-top" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                      <h5 class="card-title">{{cert.nombre_curso}}</h5>
+                                      <div class="centrado">
+                                        <button type="button" (click)="openDialog(cert)" class="btn btn-lg bg-darkblue" >Certificado</button>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </carousel>
+                    </div>
+                </div>
+                <div class="col-12 px-md-5">
+                    <h2>Otros Cursos</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-1  d-none d-md-block side"></div>
+    </div>
+</div>
