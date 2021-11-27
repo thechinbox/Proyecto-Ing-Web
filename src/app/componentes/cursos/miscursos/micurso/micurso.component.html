@@ -10,15 +10,29 @@
                         <div class="col-12 px-5 mt-md-5">
                             <h1>{{curso.nombrecurso}}</h1>
                             <div class="row px-5">
-                                <div class="col-md col-12 px-5" *ngFor="let modulo of curso.modulos; let i = index" [attr.data-index]="i">
+                                <div class="col-md col-12" *ngFor="let modulo of curso.modulos; let i = index" [attr.data-index]="i">
                                     <div  class="row ">
-                                        <div id="progress-bar" class="col mb-3 centrado" *ngFor="let clase of modulo.clases">
-                                            <button *ngIf="nromodulo_actual < modulo.nromodulo || (nromodulo_actual == modulo.nromodulo && clase.nroclase > nroclase_actual) " 
-                                                type="button" class="btn btn-lg " disabled>a</button>
-                                            <button *ngIf="nromodulo_actual > modulo.nromodulo || (nromodulo_actual == modulo.nromodulo && clase.nroclase <= nroclase_actual && clase_actual.idclase != clase.idclase) " 
-                                                type="button" (click)="cambiar_clase(clase)" class="btn btn-lg bg-vista" >a</button>
-                                            <button *ngIf="clase_actual.idclase == clase.idclase " 
-                                                type="button" class="btn btn-lg bg-vista actual" >a</button>
+                                        <div  *ngFor="let clase of modulo.clases; let i2 = index" [attr.data-index]="i2" class="col mb-3 centrado">
+                                            <div id="progress-bar" *ngIf="((i+1)*(i+1)+i2) < curso.modulos.length * modulo.clases.length">
+                                                <button *ngIf="modulo_progreso.nromodulo < modulo.nromodulo || (modulo_progreso.nromodulo == modulo.nromodulo && 
+                                                    clase.nroclase > clase_progreso.nroclase) " 
+                                                    type="button" class="btn btn-lg " disabled></button>
+                                                <button *ngIf="modulo_progreso.nromodulo > modulo.nromodulo && clase_actual.idclase != clase.idclase || 
+                                                    (modulo_progreso.nromodulo == modulo.nromodulo && clase.nroclase <= clase_progreso.nroclase && clase_actual.idclase != clase.idclase) " 
+                                                    type="button" (click)="cambiar_clase(clase)" class="btn btn-lg bg-vista " ></button>
+                                                <button *ngIf="clase_actual.idclase == clase.idclase" 
+                                                        type="button" class="btn btn-lg bg-vista actual" ></button>
+                                            </div>  
+                                            <div *ngIf="((i+1)*(i+1)+i2) == curso.modulos.length * modulo.clases.length">
+                                                <button *ngIf="modulo_progreso.nromodulo < modulo.nromodulo || (modulo_progreso.nromodulo == modulo.nromodulo && 
+                                                    clase.nroclase > clase_progreso.nroclase) " 
+                                                    type="button" class="btn btn-lg " disabled></button>
+                                                <button *ngIf="modulo_progreso.nromodulo > modulo.nromodulo && clase_actual.idclase != clase.idclase || 
+                                                    (modulo_progreso.nromodulo == modulo.nromodulo && clase.nroclase <= clase_progreso.nroclase && clase_actual.idclase != clase.idclase) " 
+                                                    type="button" (click)="cambiar_clase(clase)" class="btn btn-lg bg-vista " ></button>
+                                                <button *ngIf="clase_actual.idclase == clase.idclase" 
+                                                        type="button" class="btn btn-lg bg-vista actual" ></button>
+                                            </div>                               
                                         </div>
                                         <div class="col-12 centrado div-progressbar" *ngIf="i < curso.modulos.length -1 ">
                                             <h5>MODULO {{modulo.nromodulo}}: {{modulo.nombre}}</h5>
@@ -28,7 +42,7 @@
                                         </div>
                                     </div>
                                 </div>      
-                                <app-clase class="col-12" [clase_actual]=clase_actual></app-clase>
+                                <app-clase class="col-12" [clase_actual]=clase_actual (checkvid)='checkvid($event)'></app-clase>
                             </div>
                         </div>
                     </div>

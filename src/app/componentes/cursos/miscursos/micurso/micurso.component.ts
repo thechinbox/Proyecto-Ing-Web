@@ -14,14 +14,16 @@ import { CursosService } from 'src/app/servicios/cursos/cursos.service';
 export class MicursoComponent implements OnInit, OnDestroy {
   curso:curso ;
   progreso:progreso;
-  nroclase_actual:number;
-  nromodulo_actual:number;
   clase_actual:clase;
+  modulo_actual:modulo;
+  clase_progreso:clase;
+  modulo_progreso:modulo;
 
   constructor(public router:Router, private http:CursosService) { 
-    this.nroclase_actual=0;
-    this.nromodulo_actual=0;
     this.clase_actual = {"idclase": 0, "nombre":'',"descripcion":'',"nroclase":0,"video":''}
+    this.modulo_actual = {"id": 0,"nombre":'',"nromodulo":0,"descripcion":'',"video":"","clases": new Array<clase>()}
+    this.clase_progreso = {"idclase": 0, "nombre":'',"descripcion":'',"nroclase":0,"video":''}
+    this.modulo_progreso = {"id": 0,"nombre":'',"nromodulo":0,"descripcion":'',"video":"","clases": new Array<clase>()}
     this.progreso = {"clavecurso":0,"idclase":0,"idmodulo":0,"rut":' '};
     this.curso = {"clavecurso": 1111111111, "profesor": '', "nombrecurso": ' ', "descripcion":' ', "modulos": new Array<modulo>()}
   }
@@ -36,26 +38,69 @@ export class MicursoComponent implements OnInit, OnDestroy {
       this.progreso = datos;      
     })
     this.http.GETCURSOPARTC(sessionStorage.getItem("rut"), sessionStorage.getItem("clavecurso")).subscribe(datos=>{        
-      this.curso = datos;
+      this.curso = datos; 
       for(let modulo of this.curso.modulos){
         if(modulo.id == this.progreso.idmodulo){
-          this.nromodulo_actual = modulo.nromodulo;
+          this.modulo_actual = modulo;
+          this.modulo_progreso = modulo;
         }
         for(let clase of modulo.clases){
           if(clase.idclase == this.progreso.idclase){
-            this.nroclase_actual = clase.nroclase;
-            this.clase_actual = clase;         
+            this.clase_actual = clase;    
+            this.clase_progreso = clase; 
           }
         }
       }
     }) 
-    let video:any = document.querySelector("video");
-    video.onended = function() {
-      if(this.played.end(0) - this.played.start(0) === this.duration) {
-        console.log("Played all");
+  }
+
+  checkvid(status:any){        
+    let lastm = this.curso.modulos.length - 1;
+    let idc = this.curso.modulos[lastm].clases[this.curso.modulos[lastm].clases.length - 1].idclase
+    if(status = "ok" && this.clase_actual.idclase == this.progreso.idclase && this.clase_progreso.idclase != idc){     
+      let breakC = false; 
+      for(let modulo of this.curso.modulos){
+        if(breakC){
+          break;
+        }
+        for(let clase of modulo.clases){       
+          if(this.clase_progreso.nroclase + 1 == clase.nroclase && modulo.id == this.modulo_progreso.id){
+
+            this.progreso.idclase = clase.idclase; 
+            this.clase_progreso = clase;
+            breakC = true;
+            break;
+          }
+          else if(this.clase_progreso.nroclase + 1 > this.modulo_progreso.clases.length &&
+                  this.modulo_progreso.nromodulo + 1 == modulo.nromodulo ){
+
+            this.progreso.idclase = clase.idclase;
+            this.progreso.idmodulo = modulo.id;
+            this.clase_progreso = clase;
+            this.modulo_progreso = modulo;
+            
+            breakC = true;
+            break;
+          }
+          else if(this.clase_progreso.nroclase + 1 > this.modulo_progreso.clases.length && 
+                  this.curso.modulos.length == this.modulo_progreso.nromodulo){
+              this.progreso.idclase = clase.idclase;
+              this.progreso.idmodulo = modulo.id;
+              this.clase_progreso = clase;
+              this.modulo_progreso = modulo;    
+              breakC = true;
+              break;
+          }
+        }
       }
+      console.log(this.clase_progreso);
+      console.log(this.modulo_progreso);
+    }else if(status = "ok" && this.clase_progreso.idclase == idc){
+      console.log("curso terminado");
+      
     }
   }
+
   cambiar_clase(clase:clase){
     this.clase_actual = clase;    
   }

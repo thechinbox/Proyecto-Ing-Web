@@ -6,17 +6,20 @@
     max-height: 100%;
     width: auto;
 }
-.border-right{
+.border-right::before{
     border-image: url("../../../../../assets/side.png") 30 round;
     border-right: 5px black solid;
     min-height: 100vh;
     max-height: 100%;
 }
-.div-progressbar{
-    border-right: 5px rgb(15, 15, 46) solid;
-}
-.card, video, .card-body{
-    border-radius: 10px;
+.div-progressbar::before{
+    background: rgb(51,78,113) none repeat scroll 0 0;
+    content: "";
+    height: 75%;
+    left: 100%;
+    position: absolute;
+    width: 5px;
+    z-index: -1;
 }
 .w-3{
     width: 3%;
@@ -28,6 +31,9 @@
     outline: rgb(51,78,113) 2px solid;
     border: white 4px solid;
     border-radius: 20px;
+}
+.last::before{
+    background: none;
 }
 textarea{
     resize: none;
@@ -41,14 +47,17 @@ button{
     height: 30px;
     width: 30px;
 }
-
 button:disabled{
     background-color:rgb(221, 221, 221); 
     opacity:inherit;
 }
-#progress-bar{
-    background: linear-gradient(rgb(51,78,113),rgb(51,78,113));
-    background-repeat: no-repeat;
-    background-size: 100% 5px;
-    background-position: 0 center;
-}
+#progress-bar::before {
+    background: rgb(51,78,113) none repeat scroll 0 0;
+    content: "";
+    height: 25%;
+    left: 50%;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    z-index: -1;
+  }
