@@ -35,7 +35,10 @@ export class OfertaslaboralesService {
     return this.oferta;
   }
 
-  GETOFERTAS():Observable<any>{
-    return this.http.get(`${environment.hostname}/getofertas`);
+  GETOFERTAS(rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getofertas`,JSON.stringify({"rut":rut}), this.HttpUploadOptions);
+  }
+  POSTSOL(idoferta:any, rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postsolicitud`, JSON.stringify({"rut":rut,"idoferta":idoferta}), this.HttpUploadOptions);
   }
 } 

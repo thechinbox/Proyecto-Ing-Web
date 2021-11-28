@@ -39,8 +39,8 @@ export class CursosService {
     return this.http.post(`${environment.hostname}/postprogreso`, 
                           JSON.stringify({"idmodulo":progreso.idmodulo,"idclase":progreso.idclase,"rut":rut,"clavecurso":progreso.clavecurso,"tiempoestudio":tiempoestudio}), this.HttpUploadOptions)
   }
-  POSTFIN(progreso:progreso,rut:any):Observable<any>{
+  POSTFIN(progreso:progreso,rut:any, tiempoestudio:any):Observable<any>{
     return this.http.post(`${environment.hostname}/postfin`, 
-                          JSON.stringify({"idmodulo":progreso.idmodulo,"idclase":progreso.idclase,"rut":rut,"clavecurso":progreso.clavecurso}), this.HttpUploadOptions)
+                          JSON.stringify({"idmodulo":progreso.idmodulo,"idclase":progreso.idclase,"rut":rut,"clavecurso":progreso.clavecurso, "tiempoestudio":tiempoestudio}), this.HttpUploadOptions)
   }
 }

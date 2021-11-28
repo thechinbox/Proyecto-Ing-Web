@@ -104,8 +104,9 @@ export class MicursoComponent implements OnInit, OnDestroy {
           }
         }
       }else{
+        this.tiempoestudio += this.clase_actual.duracionclase;
         if(sessionStorage.getItem("rut") != null){
-          this.http.POSTFIN(this.progreso, sessionStorage.getItem("rut")).subscribe(datos=>{
+          this.http.POSTFIN(this.progreso, sessionStorage.getItem("rut"),this.tiempoestudio).subscribe(datos=>{
             if(datos.status == "ok"){
               let contenido:any = document.getElementById("contenido");
               contenido.style.display = "none"
@@ -117,7 +118,7 @@ export class MicursoComponent implements OnInit, OnDestroy {
             }
           })
         }else{
-          this.http.POSTFIN(this.progreso, localStorage.getItem("rut")).subscribe(datos=>{
+          this.http.POSTFIN(this.progreso, sessionStorage.getItem("rut"),this.tiempoestudio).subscribe(datos=>{
             if(datos.status == "ok"){
               let contenido:any = document.getElementById("contenido");
               contenido.style.display = "none"

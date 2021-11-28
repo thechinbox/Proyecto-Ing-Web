@@ -16,7 +16,10 @@
                                     <h5>{{oferta.empresa.nombreempresa}} | {{oferta.ubicacion}}</h5>
                                 </div>
                                 <div class="card-text">
-                                    <h5>Hace {{getTime(oferta.fechapublicacion)}} minutos</h5>
+                                    <h5 *ngIf ="selector == 0">Hace {{getTime(oferta.fechapublicacion)}} segundos</h5>
+                                    <h5 *ngIf ="selector == 1">Hace {{getTime(oferta.fechapublicacion)}} minutos</h5>
+                                    <h5 *ngIf ="selector == 2">Hace {{getTime(oferta.fechapublicacion)}} horas</h5>
+                                    <h5 *ngIf ="selector == 3">Hace {{getTime(oferta.fechapublicacion)}} dias</h5>
                                 </div>
                               </div>
                         </div>

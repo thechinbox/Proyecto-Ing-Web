@@ -4,10 +4,10 @@
         <div class="col-1 d-none d-md-block side"></div>
         <div class="col-10 ">
             <div class="row">
-                <div class="col-md-8 border-right">  
+                <div class="col-md-8 br">  
                     <div class="row centrado">
-                        <div class="col-8">
-                            <div class="row centrado mt-5 bg-gray">
+                        <div class="col-md-10">
+                            <div class="row centrado m-5 bg-gray">
                                 <div class="col-12 mt-5">
                                     <h1>{{oferta.cargo}}</h1>
                                     <p >Descripcion del empleo</p>
@@ -15,26 +15,57 @@
                                 <p class="col-12">{{oferta.descripcion}}</p>
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6">
                                             <p>{{oferta.empresa.nombreempresa}} | {{oferta.ubicacion}}</p>
-                                            <p>Hace {{getTime(oferta.fechapublicacion)}} minutos</p>
+                                            <h5 *ngIf ="selector == 0">Hace {{tiempo}} segundos</h5>
+                                            <h5 *ngIf ="selector == 1">Hace {{tiempo}} minutos</h5>
+                                            <h5 *ngIf ="selector == 2">Hace {{tiempo}} horas</h5>
+                                            <h5 *ngIf ="selector == 3">Hace {{tiempo}} dias</h5>
                                         </div>
-                                        <div class="col-md-6 right">
-                                            <button type="button" class="btn btn-lg bg-darkblue">Postularme</button>
+                                        <div class="col-lg-6 right clean">
+                                            <button type="button" (click)="postular()"class="btn btn-lg bg-darkblue">Postularme</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>   
                         </div>
+                        <div  class="col-12 mt-5 p-5 centrado">
+                            <div id="mensaje" class="row">
+                                <div class="col-12 centrado">
+                                    <h3>Tu postulacion ha sido enviada con exito </h3>
+                                </div>
+                                <div class="col-12 centrado">
+                                    <h4>Te redirigiremos hacia la seccion de ofertas para que puedas continuar navegando</h4>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-12">
-
+                            <h2>Ofertas Relacionadas</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col">
-
+                        <div class="col-12 mt-5 centrado">
+                            <div class="card w-100" >
+                                <div class="centrado">
+                                    <img src="../../../../assets/logo.png"  class="card-img-top w-50 " alt="...">
+                                </div>
+                                <div class="card-body mx-3">
+                                    <h4 class="card-title">Empresa Verificada</h4>
+                                    <h4 class="card-subtitle">{{oferta.empresa.nombreempresa}} | {{oferta.empresa.ciudad}}, {{oferta.empresa.pais}}</h4>
+                                    <h4 class="card-subtitle">
+                                        <span class="material-icons mx-2"> call </span>
+                                        <span>{{oferta.empresa.telefono}}</span>
+                                    </h4>
+                                    <h4 class="card-subtitle">
+                                        <span class="material-icons-outlined mx-2"> email </span>
+                                        <span>{{oferta.empresa.email}}</span>
+                                    </h4>
+                                    <p class="mt-5">Descripcion de la Empresa</p>
+                                    <p class="card-text">{{oferta.empresa.descripcion}}</p>
+                                </div>
+                              </div>
                         </div>
                     </div>
                 </div>
