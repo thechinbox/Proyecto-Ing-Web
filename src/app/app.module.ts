@@ -19,6 +19,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { CertificadoComponent } from './componentes/certificados/certificado/certificado.component';
+import { OpcionLoginComponent } from './login/login_empresas_profesionales/opcion-login/opcion-login.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CertificadoComponent } from './componentes/certificados/certificado/cer
     ClaseComponent,
     CertificadosComponent,
     CertificadoComponent,
+    OpcionLoginComponent,
   ],
   imports: [
     BrowserModule,
