@@ -22,6 +22,8 @@ import { CertificadoComponent } from './componentes/certificados/certificado/cer
 import { OpcionLoginComponent } from './componentes/login/login_empresas_profesionales/opcion-login/opcion-login.component';
 import { LoginEmpresasComponent } from './componentes/login/login_empresas_profesionales/login-empresas/login-empresas.component';
 import { LoginProfesionalComponent } from './componentes/login/login_empresas_profesionales/login-profesional/login-profesional.component';
+import { OfertasComponent } from './componentes/ofertaslaborales/ofertas.component';
+import { OfertaComponent } from './componentes/ofertaslaborales/oferta/oferta.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { LoginProfesionalComponent } from './componentes/login/login_empresas_pr
     OpcionLoginComponent,
     LoginProfesionalComponent,
     LoginEmpresasComponent,
+    OfertasComponent,
+    OfertaComponent,
   ],
   imports: [
     BrowserModule,

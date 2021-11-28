@@ -1,0 +1,12 @@
+@media (min-width: 1280px) {
+    .border-right{
+        border-image: url("../../../assets/side.png") 30 round;
+        border-right: 5px black solid;
+        min-height: 100vh;
+        max-height: 100%;
+    }
+}
+.oferta{
+    background-color: rgba(199, 199, 199, 0.774);
+    border-radius: 10px;
+}

@@ -1,9 +1,3 @@
-.border-right::before{
-    border-image: url("../../../../../assets/side.png") 30 round;
-    border-right: 5px black solid;
-    min-height: 100vh;
-    max-height: 100%;
-}
 .div-progressbar::before{
     background: rgb(51,78,113) none repeat scroll 0 0;
     content: "";
@@ -43,6 +37,14 @@ button:disabled{
     background-color:rgb(221, 221, 221); 
     opacity:inherit;
 }
+
+#mensaje{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+@media (min-width: 800px){
 #progress-bar::before {
     background: rgb(51,78,113) none repeat scroll 0 0;
     content: "";
@@ -53,3 +55,12 @@ button:disabled{
     width: 100%;
     z-index: -1;
   }
+}
+@media (min-width: 1280px) {
+    .border-right{
+        border-image: url("../../../../../assets/side.png") 30 round;
+        border-right: 5px black solid;
+        min-height: 100vh;
+        max-height: 100%;
+    }
+}

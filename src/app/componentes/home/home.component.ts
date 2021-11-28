@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { curso } from 'src/app/interfaces/curso';
 import { HomeService } from 'src/app/servicios/home/home.service';
+import { Subscription } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-home',
@@ -10,6 +13,7 @@ import { HomeService } from 'src/app/servicios/home/home.service';
 })
 export class HomeComponent implements OnInit {
   cursos:any;
+
   constructor(public router:Router, private http:HomeService) { 
     this.cursos = new Array();
     if(sessionStorage.getItem("rut") == null ){
@@ -26,7 +30,7 @@ export class HomeComponent implements OnInit {
         this.cursos = datos;
         console.log(this.cursos);
       }) 
-    }     
+    }    
 
     
   }

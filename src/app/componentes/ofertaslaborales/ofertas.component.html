@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 d-none d-md-block side"></div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-4 border-right">
+
+                </div>
+                <div class="col-md-8 mt-5" data-spy="scroll" data-target=".scrollable" data-offset="0">
+                    <div class="row centrado">
+                        <div type="button" [routerLink]="['oferta']" (click)="verOferta(oferta)" class="col-10 mb-5 " *ngFor="let oferta of ofertas">
+                            <div class="card oferta px-3 scrollable">
+                                <h2 class="card-title mx-1">{{oferta.cargo}}</h2>
+                                <div class="card-subtitle">
+                                    <h5>{{oferta.empresa.nombreempresa}} | {{oferta.ubicacion}}</h5>
+                                </div>
+                                <div class="card-text">
+                                    <h5>Hace {{getTime(oferta.fechapublicacion)}} minutos</h5>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-1 d-none d-md-block side"></div>
+    </div>
+</div>

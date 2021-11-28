@@ -29,13 +29,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.hide = document.getElementById('error');
     this.hide.style.display = "none";  
+    let login:any = document.getElementById('sesion');
+    login.style.display = "none"
   }
 
   login(){    
+    let login:any = document.getElementById('sesion');
+    login.style.display = "flex"
     let form_val = this.formulario.value;      
     this.http.LOGINCOMUN(form_val.email, form_val.password).subscribe(datos=>
       {
         if(datos.length == 0){
+          login.style.display = "none"
           console.log("error");
           this.hide.style.display = "flex"
         }else{

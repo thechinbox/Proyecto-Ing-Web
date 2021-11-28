@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 d-none d-md-block side"></div>
+        <div class="col-10 ">
+            <div class="row">
+                <div class="col-md-8 border-right">  
+                    <div class="row centrado">
+                        <div class="col-8">
+                            <div class="row centrado mt-5 bg-gray">
+                                <div class="col-12 mt-5">
+                                    <h1>{{oferta.cargo}}</h1>
+                                    <p >Descripcion del empleo</p>
+                                </div>
+                                <p class="col-12">{{oferta.descripcion}}</p>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p>{{oferta.empresa.nombreempresa}} | {{oferta.ubicacion}}</p>
+                                            <p>Hace {{getTime(oferta.fechapublicacion)}} minutos</p>
+                                        </div>
+                                        <div class="col-md-6 right">
+                                            <button type="button" class="btn btn-lg bg-darkblue">Postularme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="col-12">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1 d-none d-md-block side"></div>
+    </div>
+</div>

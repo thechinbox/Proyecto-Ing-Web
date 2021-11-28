@@ -49,9 +49,6 @@ export class RegistroComponent implements OnInit {
   }
 
   registrarse(){
-    let hide:any = document.getElementById('formulario');
-    hide.style.display = "none";
-    this.exito.style.display = "block";
     let form_val = this.formulario.value;
     let reg_form:registro = {nombres:form_val.nombres,apellidos:form_val.apellidos,email:form_val.email,pais:form_val.pais.split(',')[0],
       contraseña:form_val.contrasena,ciudad:form_val.city,documento:form_val.docu,telefono:form_val.pais.split(',')[1]+form_val.telefono}
@@ -59,7 +56,11 @@ export class RegistroComponent implements OnInit {
     
     console.log(reg_form);
     this.http.POSTREGISTRO(reg_form).subscribe(datos=>{
-        console.log(datos)  
+        if(datos.status == "ok"){
+          let hide:any = document.getElementById('formulario');
+          hide.style.display = "none";
+          this.exito.style.display = "block";
+        }  
       }  
     )
     setTimeout(() => {
