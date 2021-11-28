@@ -20,10 +20,10 @@ export class MicursoComponent implements OnInit, OnDestroy {
   modulo_progreso:modulo;
 
   constructor(public router:Router, private http:CursosService) { 
-    this.clase_actual = {"idclase": 0, "nombre":'',"descripcion":'',"nroclase":0,"video":''}
-    this.modulo_actual = {"id": 0,"nombre":'',"nromodulo":0,"descripcion":'',"video":"","clases": new Array<clase>()}
-    this.clase_progreso = {"idclase": 0, "nombre":'',"descripcion":'',"nroclase":0,"video":''}
-    this.modulo_progreso = {"id": 0,"nombre":'',"nromodulo":0,"descripcion":'',"video":"","clases": new Array<clase>()}
+    this.clase_actual = {"idclase": 0, "nombre":'',"descripcion":'',"video":''}
+    this.modulo_actual = {"id": 0,"nombre":'',"descripcion":'',"video":"","clases": new Array<clase>()}
+    this.clase_progreso = {"idclase": 0, "nombre":'',"descripcion":'',"video":''}
+    this.modulo_progreso = {"id": 0,"nombre":'', "descripcion":'',"video":"","clases": new Array<clase>()}
     this.progreso = {"clavecurso":0,"idclase":0,"idmodulo":0,"rut":' '};
     this.curso = {"clavecurso": 1111111111, "profesor": '', "nombrecurso": ' ', "descripcion":' ', "modulos": new Array<modulo>()}
   }
@@ -64,15 +64,15 @@ export class MicursoComponent implements OnInit, OnDestroy {
           break;
         }
         for(let clase of modulo.clases){       
-          if(this.clase_progreso.nroclase + 1 == clase.nroclase && modulo.id == this.modulo_progreso.id){
+          if(this.clase_progreso.idclase + 1 == clase.idclase && modulo.id == this.modulo_progreso.id){
 
             this.progreso.idclase = clase.idclase; 
             this.clase_progreso = clase;
             breakC = true;
             break;
           }
-          else if(this.clase_progreso.nroclase + 1 > this.modulo_progreso.clases.length &&
-                  this.modulo_progreso.nromodulo + 1 == modulo.nromodulo ){
+          else if(this.clase_progreso.idclase + 1 > this.modulo_progreso.clases.length &&
+                  this.modulo_progreso.id + 1 == modulo.id ){
 
             this.progreso.idclase = clase.idclase;
             this.progreso.idmodulo = modulo.id;
@@ -82,8 +82,8 @@ export class MicursoComponent implements OnInit, OnDestroy {
             breakC = true;
             break;
           }
-          else if(this.clase_progreso.nroclase + 1 > this.modulo_progreso.clases.length && 
-                  this.curso.modulos.length == this.modulo_progreso.nromodulo){
+          else if(this.clase_progreso.idclase + 1 > this.modulo_progreso.clases.length && 
+                  this.curso.modulos.length == this.modulo_progreso.id){
               this.progreso.idclase = clase.idclase;
               this.progreso.idmodulo = modulo.id;
               this.clase_progreso = clase;
