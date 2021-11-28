@@ -20,6 +20,9 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { CertificadoComponent } from './componentes/certificados/certificado/certificado.component';
 import { OpcionLoginComponent } from './login/login_empresas_profesionales/opcion-login/opcion-login.component';
+import { LoginEmpresaComponent } from './componentes/login/login_empresas_profesionales/login_empresa/login-empresa/login-empresa.component';
+import { LoginProfesionalComponent } from './componentes/login/login_empresas_profesionales/login_profesional/login-profesional/login-profesional.component';
+import { LoginEmpresasComponent } from './componentes/login/login_empresas_profesionales/login-empresas/login-empresas.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { OpcionLoginComponent } from './login/login_empresas_profesionales/opcio
     CertificadosComponent,
     CertificadoComponent,
     OpcionLoginComponent,
+    LoginEmpresaComponent,
+    LoginProfesionalComponent,
+    LoginEmpresasComponent,
   ],
   imports: [
     BrowserModule,
