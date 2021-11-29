@@ -5,10 +5,13 @@
   <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse centrado">
     <ul class="navbar-nav ">
       <li class="nav-item mx-3 mt-1" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']"> 
-        <a class="nav-link px-4" [routerLink]="'../'" (click)="isMenuCollapsed = true">Mis Cursos</a>
+        <a class="nav-link px-4" [routerLink]="'/profesional'" (click)="isMenuCollapsed = true">Mis Cursos</a>
       </li>
-      <li class="nav-item mx-3 mt-1" [routerLinkActive]="['active']">
-        <a class="nav-link px-4" [routerLink]="'crearcurso'" (click)="isMenuCollapsed = true">Crear Curso</a>
+      <li class="nav-item mx-3 mt-1" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']"> 
+        <a class="nav-link px-4"  (click)="isMenuCollapsed = true">Bolsa</a>
+      </li>
+      <li class="nav-item mx-3 mt-1" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link px-4" [routerLink]="'/profesional/crearcurso'" (click)="isMenuCollapsed = true">Crear Curso</a>
       </li>
       <li class="nav-item mx-3 mt-1">
         <div class="usuario">
@@ -17,7 +20,7 @@
               </a>
   
             <div class="collapse" id="collapseUser" [ngbCollapse]="isCollapsed2">
-                <button class="btn btn-primary"  style="width:130px;" routerLinkActive="router-link-active">Cerrar Sesión</button>
+                <button class="btn btn-primary" type="button" (click)="logout()"  style="width:130px;" routerLinkActive="router-link-active">Cerrar Sesión</button>
             </div>
         </div>
         

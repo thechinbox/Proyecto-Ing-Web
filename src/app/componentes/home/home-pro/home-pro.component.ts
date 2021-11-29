@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-pro',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeProComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) {
+    if(sessionStorage.getItem("rutpro") == null ){
+      if(localStorage.getItem("rutpro") == null){
+        this.router.navigate(['']);
+      }
+    }
+  }
 
   ngOnInit(): void {
   }
