@@ -35,12 +35,12 @@
                     <a class="nav-link active" style="color: white;" aria-current="page" [routerLink]="['/Notificaciones']" routerLinkActive="router-link-active"><span class="material-icons"> notifications</span></a>
                 </li>
                 <div class="usuario">
-                    <a class="nav-link active" (click)="isCollapsed2=!isCollapsed2" [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseUser" [routerLink]="['/Usuario']" routerLinkActive="router-link-active">
+                    <a class="nav-link active" (click)="isCollapsed2=!isCollapsed2" [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseUser">
                         <span class="material-icons"style="color: white;">account_circle</span>
                       </a>
     
                     <div class="collapse" id="collapseUser" [ngbCollapse]="isCollapsed2">
-                        <a class="btn btn-primary" style="width:130px;" [routerLink]="['/Usuario']" routerLinkActive="router-link-active">Cerrar Sesión</a>
+                        <button class="btn btn-primary"  style="width:130px;" (click)="logout()" routerLinkActive="router-link-active">Cerrar Sesión</button>
                     </div>
                 </div>
                 
