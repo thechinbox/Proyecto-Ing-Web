@@ -1,0 +1,63 @@
+input{
+    border-radius: 10px;
+    border-color: rgba(83, 83, 83, 0.329);
+    height: 45px;
+    font-size: large;
+}
+button{
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+    min-height: 50px;
+    max-height: auto;
+}
+h2{
+    font-size: xx-large;
+}
+img{
+    width:80%;
+}
+a,a:checked,a:link,a:visited{
+  text-decoration: none;
+  color: rgba(128, 128, 128, 0.651);
+}
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+#side {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/577ba8c9f5e231f12b5e2341/1496527241250-VJRAZLD671X2E0014FD1/No+Noise.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height: 100vh;
+    max-height: 100%;
+    width: auto;
+}
+#rem{
+    margin-inline-start: 10px;
+    top:-16px
+}
+.input-title{
+    margin-inline-start: 40px;
+}
+
+
+#loging {
+    width: 20px;
+    height: 20px;
+    background: white;
+    outline: 3px dotted blue;
+    border-radius: 50%;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

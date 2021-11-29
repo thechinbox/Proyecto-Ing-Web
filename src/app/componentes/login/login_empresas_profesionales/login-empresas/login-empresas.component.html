@@ -1,1 +1,79 @@
-<p>login-empresas works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-7 " id="side">
+            
+        </div>
+        <div class="col-12 col-md-5 ">
+            <div class="col-12 my-5">
+                <div class="row" >
+                    <h2 class="col-12 centrado ">Inicio de Sesion Empresa</h2>
+                    <div class="col-12 centrado" id="error">
+                        <span class="centrado bg-danger w-50">Error al Iniciar Sesion</span>
+                    </div>
+                    <div class="col-12 centrado" id="sesion">
+                        <span class="mx-2">Iniciando Sesion</span>
+                        <span id="loging"></span>
+                    </div>
+                </div>  
+            </div>
+            <div class="row">                
+                <form [formGroup]="formulario" (ngSubmit)="login()"  class="col-12 mb-5 " novalidate>
+                    <div class="form-group col-12">
+                        <label for="email" class="input-title">Email </label>
+                        <div class="col-12 px-md-5">
+                            <input placeholder="Email" class="form-control-lg w-100" id="email" type="email" formControlName="email">  
+                            <div class="row" *ngIf="formulario.controls['email'].invalid && (formulario.controls['email'].dirty || formulario.controls['email'].touched)" class="alert alert-danger">
+                                <div class="col-12 centrado" *ngIf="formulario.controls['email'].hasError('required')" >
+                                    <span> Debe ingresar email.</span>
+                                </div>
+                                <div class="col-12" *ngIf="formulario.controls['email'].hasError('email')" >
+                                    <span> Ingrese un email valido</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 mb-5">
+                        <label for="password" class="input-title">Contraseña </label>
+                        <div class="col-12 px-md-5">
+                            <input placeholder="Contraseña" class="form-control-lg  w-100" id="password" type="password" formControlName="password" >  
+                            <div class="row" *ngIf="formulario.controls['password'].invalid && (formulario.controls['password'].dirty || formulario.controls['password'].touched)" class="alert alert-danger">
+                                <div class="col-12 centrado" *ngIf="formulario.controls['password'].hasError('required')" >
+                                    <span> Debe ingresar su contraseña.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <div class="col-12 px-5 mb-3 trans">
+                            <label for="rem">Recordar Contraseña: </label>
+                            <input class="form-check-input ms-5" id="rem" formControlName="recordar" type="checkbox" >  
+                        </div>
+                        <div class="col-12 px-5">
+                            <a id="o" [routerLink]="''">¿Olvidaste tu Contraseña?</a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-12 mt-5 centrado ">
+                        <button type="submit" class="btn-lg w-50 bg-darkblue">Iniciar Sesión</button>
+                    </div>  
+                </form>
+                
+                <div class="col-12 centrado">
+                    <a class="darkblue" [routerLink]="['/']">Iniciar Sesión Usuario Normal</a>
+                </div>
+                <div class="col-12 mt-5 centrado">
+                    <img src="../../../assets/login/divider.png">
+                </div>
+                <div class="col-12 mt-5 centrado">
+                    <a [routerLink]="'registro'">¿Aún no tienes Cuentas?</a>
+                </div>
+                <div class="col-12 mt-5 centrado">
+                    <img src="../../../assets/login/divider.png">
+                </div>
+                <div class="col-12 mt-5 centrado">
+                    <p class="trans w-75">Al registrarte en la Aplicación, aceptas nuestros Terminos y Política de privacidad.</p>
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>
