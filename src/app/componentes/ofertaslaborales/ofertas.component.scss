@@ -10,3 +10,14 @@
     background-color: rgba(219, 217, 217, 0.774);
     border-radius: 10px;
 }
+
+.lista{
+    @media(min-height: 600px){
+        max-height: 800px;
+    }
+    @media(min-height: 300px){
+        @media(max-height:599px){
+            max-height: 300px;
+        }
+    }
+}

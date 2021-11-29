@@ -14,7 +14,7 @@ export class CursoproComponent implements OnInit {
   cursoF:FormGroup;
 
   constructor(public Form:FormBuilder) {
-    this.modulos = new Array()
+    this.modulos = new Array<modulo>()
     this.curso = {"clavecurso":0,"descripcion":"","modulos":this.modulos,"nombrecurso":"","profesor":""}
     this.cursoF = this.Form.group({
       nombres:["",Validators.compose([Validators.nullValidator, Validators.required])],
@@ -25,7 +25,15 @@ export class CursoproComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addmodulo(e:any){
-    
+
+  addmodulo(e:modulo){
+    this.modulos.push(e)    
+  }
+
+  initEditM(id:number){
+
+  }
+  eliminarmodulo(id:number){
+
   }
 }

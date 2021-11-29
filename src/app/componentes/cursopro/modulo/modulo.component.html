@@ -1,15 +1,19 @@
+
 <form [formGroup]="moduloF" class="col-md-6 my-2">
+    <div *ngIf="erraddmod"class="col-12 bg-danger">
+        <h2>No es posible añadir un modulo sin clases.</h2>
+    </div>
     <div class="row left">
         <div class="col-12 my-2">
             <label>Nombre Modulo</label>
             <div>
-                <input type="text" class="form-control form-control-lg">
+                <input formControlName="nombreM" type="text" class="form-control form-control-lg">
             </div>
         </div>
         <div class="col-12 my-2">
             <label>Descripcion Modulo</label>
             <div>
-                <textarea class="w-100"></textarea>
+                <textarea formControlName="descripcionM" class="w-100"></textarea>
             </div>
         </div>
         <div  class="col-12 my-2 px-5"  >
@@ -74,5 +78,5 @@
     </div>
 </form>
 <div class="col-12 centrado mt-4">
-    <button id="addmodulo" [disabled]="claseF.invalid" class="btn btn-lg bg-darkblue">Añadir Modulo</button>
+    <button id="addmodulo" [disabled]="moduloF.invalid" class="btn btn-lg bg-darkblue">Añadir Modulo</button>
 </div>

@@ -16,7 +16,9 @@ export class ModuloComponent implements OnInit {
   edit:boolean;
   idedit:number;
   erredit:boolean;
-  @Output() moduloE:EventEmitter<String> = new EventEmitter();
+  erraddmod:boolean;
+  modulo:modulo;
+  @Output() addmodulo:EventEmitter<modulo> = new EventEmitter();
 
   constructor(public Form:FormBuilder) {
     this.claseF = this.Form.group({
@@ -25,20 +27,34 @@ export class ModuloComponent implements OnInit {
       video:["",Validators.compose([Validators.nullValidator, Validators.required])]
     }) 
     this.moduloF = this.Form.group({
-      nombres:["",Validators.compose([Validators.nullValidator, Validators.required])],
-      descripcion:["",Validators.compose([Validators.nullValidator, Validators.required])],
+      nombreM:["",Validators.compose([Validators.nullValidator, Validators.required])],
+      descripcionM:["",Validators.compose([Validators.nullValidator, Validators.required])],
     })    
-    this.clases = new Array(); 
+    this.clases = new Array<clase>(); 
     this.edit = false;
     this.idedit = 0;
     this.erredit = false;
+    this.erraddmod = false;
+    this.modulo = {"id":0,"descripcion":"","nombre":"","video":"","clases": new Array<clase>()}
   }
 
   ngOnInit(): void {
-    let addmodulo:any = document.querySelector("#addmodulo");
-    addmodulo.addEventListener('click', (e:any) => {
+    let boton:any = document.querySelector("#addmodulo");
+    boton.addEventListener('click', (e:any) => {
       if(this.clases.length <=0){
-
+        this.erraddmod = true;
+        setTimeout(() => {
+          this.erraddmod = false;
+        }, 3000);  //3s}
+      }else{
+        let mf_v = this.moduloF.value;
+        this.modulo.id = 1;
+        this.modulo.nombre = mf_v.nombreM;
+        this.modulo.descripcion = mf_v.descripcionM;
+        this.modulo.clases = this.clases;  
+        console.log(this.modulo);
+              
+        this.addmodulo.emit(this.modulo);
       }
     }) 
   }
@@ -104,7 +120,4 @@ export class ModuloComponent implements OnInit {
     this.claseF.reset();
   }
   
-  addmodulo(){
-
-  }
 }

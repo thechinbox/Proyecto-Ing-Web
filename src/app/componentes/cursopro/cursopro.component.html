@@ -17,6 +17,24 @@
                         <textarea class="w-100"></textarea>
                     </div>
                 </div>
+                <div *ngIf="modulos.length >0" class="col-md-8 form-group">
+                    <div class="centrado">
+                        <h2 class="mx-2">Modulos del curso</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-12" *ngFor="let modulo of modulos"> 
+                            <div class="row"> 
+                                <span class="col-8 left align-content-center">Modulo Numero {{modulo.id}} - {{modulo.nombre}}</span>
+                                <button type="button" class="btn btn-sm col-2 right" (click)="initEditM(modulo.id)">
+                                    <span class="material-icons-outlined pen"> edit </span>
+                                </button>
+                                <button type="button" class="btn btn-sm col-2 right" (click)="eliminarmodulo(modulo.id)">
+                                    <span  class="material-icons-outlined trash"> delete_forever </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-10 centrado ">
                     <h2>Crear Modulos del Curso y Clases del Modulo</h2>
                 </div>
