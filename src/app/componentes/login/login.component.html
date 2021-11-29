@@ -17,7 +17,7 @@
                 </div>  
             </div>
             <div class="row">                
-                <form [formGroup]="formulario" (ngSubmit)="login()"  class="col-12 mb-5 " novalidate>
+                <form [formGroup]="formulario"  class="col-12 mb-5 " novalidate>
                     <div class="form-group col-12">
                         <label for="email" class="input-title">Email </label>
                         <div class="col-12 px-md-5">
@@ -54,7 +54,7 @@
                         
                     </div>
                     <div class="col-12 mt-5 centrado ">
-                        <button type="submit" class="btn-lg w-50 bg-darkblue">Iniciar Sesión</button>
+                        <button type="button" (click)="login()" class="btn-lg w-50 bg-darkblue">Iniciar Sesión</button>
                     </div>  
                 </form>
                 

@@ -10,6 +10,19 @@
       <li class="nav-item mx-3 mt-1" [routerLinkActive]="['active']">
         <a class="nav-link px-4" [routerLink]="'crearcurso'" (click)="isMenuCollapsed = true">Crear Curso</a>
       </li>
+      <li class="nav-item mx-3 mt-1">
+        <div class="usuario">
+            <a class="nav-link active" (click)="isCollapsed2=!isCollapsed2" [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseUser">
+                <span class="material-icons"style="color: white;">account_circle</span>
+              </a>
+  
+            <div class="collapse" id="collapseUser" [ngbCollapse]="isCollapsed2">
+                <button class="btn btn-primary"  style="width:130px;" routerLinkActive="router-link-active">Cerrar Sesión</button>
+            </div>
+        </div>
+        
+      </li>
     </ul>
+    
   </div>  
 </nav>

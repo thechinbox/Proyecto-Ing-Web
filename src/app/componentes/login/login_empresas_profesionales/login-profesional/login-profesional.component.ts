@@ -13,14 +13,14 @@ import { HomeComponent } from '../../../home/home.component';
   styleUrls: ['./login-profesional.component.scss']
 })
 export class LoginProfesionalComponent implements OnInit {
-  formulario:FormGroup;
+  formulariopro:FormGroup;
   hide:any;
 
   constructor(public form:FormBuilder, private http:LoginService, public router:Router ) {
     if(sessionStorage.getItem("rut") != null || localStorage.getItem("rut")  != null){
       this.router.navigate(['home'])
     }
-    this.formulario = this.form.group({
+    this.formulariopro = this.form.group({
       email:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.email])],
       password:["",Validators.compose([Validators.nullValidator, Validators.required])],
       recordar:[""]
@@ -37,23 +37,23 @@ export class LoginProfesionalComponent implements OnInit {
   login(){    
     let login:any = document.getElementById('sesion');
     login.style.display = "flex"
-    let form_val = this.formulario.value;      
-    this.http.LOGINCOMUN(form_val.email, form_val.password).subscribe(datos=>
+    let form_val = this.formulariopro.value;      
+    this.http.LOGINPRO(form_val.email, form_val.password).subscribe(datos=>
       {
         if(datos.length == 0){
           login.style.display = "none"
           console.log("error");
           this.hide.style.display = "flex"
         }else{
-          console.log( datos[0].rut);
+          console.log( datos.rut);
           
           if(form_val.recordar == true){
-            localStorage.setItem("rut", datos[0].rut)
+            localStorage.setItem("rutpro", datos.rut)
           }
           else{
-            sessionStorage.setItem("rut", datos[0].rut)
+            sessionStorage.setItem("rutpro", datos.rut)
           }
-          this.router.navigate(['home'])
+          this.router.navigate(['profesional'])
         }
       }
     )
