@@ -13,13 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" style="color: white;" aria-current="page" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/certificados']" routerLinkActive="router-link-active">Certificados</a>
+                <a class="nav-link active" style="color: white;" aria-current="page" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/certificados']" [routerLinkActive]="['active']">Certificados</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="color: white;" aria-current="page" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/cursos']" routerLinkActive="router-link-active">Cursos</a>
+                <a class="nav-link active" style="color: white;" aria-current="page" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/cursos']" [routerLinkActive]="['active']">Cursos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="color: white;" aria-current="page" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Bolsa</a>
+                <a class="nav-link active" style="color: white;" aria-current="page" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/ofertas']" [routerLinkActive]="['active']">Bolsa</a>
               </li>
               <!--<li class="parrafo" [ngbCollapse]="!isCollapsed">
                 <p class="texto">|</p>
@@ -40,7 +40,7 @@
                       </a>
     
                     <div class="collapse" id="collapseUser" [ngbCollapse]="isCollapsed2">
-                        <button class="btn btn-primary"  style="width:130px;" (click)="logout()" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active">Cerrar Sesión</button>
+                        <button class="btn btn-primary"  style="width:130px;" (click)="logout()" routerLinkActive="router-link-active">Cerrar Sesión</button>
                     </div>
                 </div>
                 

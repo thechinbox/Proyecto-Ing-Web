@@ -14,7 +14,8 @@ import { HomeComponent } from '../home/home.component';
 export class LoginComponent implements OnInit {
   formulario:FormGroup;
   hide:any;
-
+  err1:boolean;
+  log:boolean;
   constructor(public form:FormBuilder, private http:LoginService, public router:Router ) {
     if(sessionStorage.getItem("rut") != null || localStorage.getItem("rut")  != null){
       this.router.navigate(['home'])
@@ -24,25 +25,24 @@ export class LoginComponent implements OnInit {
       password:["",Validators.compose([Validators.nullValidator, Validators.required])],
       recordar:[""]
     })
+    this.err1 = false;
+    this.log = false;
   }
 
   ngOnInit(): void {
-    this.hide = document.getElementById('error');
-    this.hide.style.display = "none";  
-    let login:any = document.getElementById('sesion');
-    login.style.display = "none"
   }
 
   login(){    
-    let login:any = document.getElementById('sesion');
-    login.style.display = "flex"
+    this.log = true;
     let form_val = this.formulario.value;      
     this.http.LOGINCOMUN(form_val.email, form_val.password).subscribe(datos=>
       {
         if(datos.length == 0){
-          login.style.display = "none"
-          console.log("error");
-          this.hide.style.display = "flex"
+          this.err1 = true;
+          this.log = false;
+          setTimeout(() => {
+            this.err1 = false;
+          }, 3000);  //3s
         }else{
           console.log( datos[0].rut);
           

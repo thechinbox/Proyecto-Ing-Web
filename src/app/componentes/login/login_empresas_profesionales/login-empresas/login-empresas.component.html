@@ -7,10 +7,10 @@
             <div class="col-12 my-5">
                 <div class="row" >
                     <h2 class="col-12 centrado ">Inicio de Sesion Empresa</h2>
-                    <div class="col-12 centrado" id="error">
+                    <div *ngIf="err1" class="col-12 centrado" id="error">
                         <span class="centrado bg-danger w-50">Error al Iniciar Sesion</span>
                     </div>
-                    <div class="col-12 centrado" id="sesion">
+                    <div *ngIf="log" class="col-12 centrado" id="sesion">
                         <span class="mx-2">Iniciando Sesion</span>
                         <span id="loging"></span>
                     </div>
