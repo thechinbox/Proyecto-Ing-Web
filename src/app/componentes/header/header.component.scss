@@ -1,70 +1,49 @@
-.header{
-    background-color: rgba(49, 63, 79, 1); 
-    margin: none;
-}
-.buttons-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: rgba(49, 63, 79, 1);
-    align-content: center;
-    height: 50px;
-    margin: none;
-}
-.boton{
-    background-color: rgba(49, 63, 79, 1);
+.nav-item{
     list-style:none;
-    margin-right: 20px;
 }
-.nombre-boton{
-    margin-left: 5px;
-    margin-right: 5px;
-    color: white;
+.navbar-brand{
+    color: white; 
+}
+.nav-item{
+    color: white; 
+    display: flex;
+    align-items: center;
+}
+.btn btn-outline-success{
+    height: 20px;
+}
+.container-fluid{
+    display: flex;
+    justify-content: space-between;
+}
+.container-right{
+    width:700px;
+}
+.container-left{
+    width:170px;
 }
 .form-control{
-    background-color: rgba(49, 63, 79, 1);
-    height: 30px;
-    color:white;
+    width: 220px;
+}
+.navbar-toggler{
     border-color: white;
-    display:flex;
-    align-content: center;
-    width:240px;
-}
-.input-group-text{
-    height: 30px;
-}
-.resto{
-    display: flex;
-    width: 65%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-}
-.inicio{
-    display: flex;
-    width: 20%;
-    display:flex;
-    align-items: center;
-   
-}
-.grupo{
-    display: flex;
-    flex-direction: row;
-}
-.material-icons{
-    font-size: 30px;
-}
-.input-group-text{
-    height: 30px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
 }
 .texto{
     color:white;
-    font-size: 28px;
+    font-size: 34px;
     margin-right: 20px;
-    align-self: flex-start;
+    
+}
+.navbar-nav me-auto{
+    display: flex;
+    align-content: flex-end;
+}
+.parrafo{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    height: 36px;
+}
+.usuario{
+    display: flex;
 }
