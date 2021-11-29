@@ -1,0 +1,48 @@
+.col{
+    min-width: 100%;
+}
+.bg-gray{
+    background-color: rgba(219, 217, 217, 0.774);
+    min-height:50vh; width: auto;
+}
+button{
+    color: white;
+}
+@media (min-width: 769px) {
+    .br{
+        border-image: url("../../../../assets/side.png") 30 round;
+        border-right: 1px black solid;
+        min-height: 100vh;
+        max-height: 100%;
+    }
+    .right{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:right;
+    }
+    button{
+        max-height: 75%;
+        min-width: 50%;
+        min-height: 40px;
+    }
+}
+#mensaje{
+    border: 1px dotted black;
+}
+
+@media (max-width: 768px) {
+        .clean{
+            display: block;
+            height: 50px;
+            width: 50%;
+        }
+        button{
+            display: flex;
+            justify-content: center;
+            min-height: 50%;
+        }
+        .bg-gray{
+            background-color: rgba(219, 217, 217, 0.774);
+            min-height:50vh; width: 100%;
+        }
+}   

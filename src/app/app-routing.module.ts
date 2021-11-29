@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CertificadosComponent } from './componentes/certificados/certificados.component';
 import { CursoComponent } from './componentes/cursos/curso/curso.component';
@@ -15,6 +15,9 @@ import { OfertasComponent } from './componentes/ofertaslaborales/ofertas.compone
 import { OfertaComponent } from './componentes/ofertaslaborales/oferta/oferta.component';
 import { HomeProComponent } from './componentes/home/home-pro/home-pro.component';
 import { CursoproComponent } from './componentes/cursopro/cursopro.component';
+import { MiscursosComponent } from './componentes/cursos/miscursos/miscursos/miscursos.component';
+import { OfertasproComponent } from './componentes/ofertaspro/ofertaspro.component';
+import { OfertalaboralComponent } from './componentes/ofertaspro/ofertalaboral/ofertalaboral.component';
 import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component'
 
 const routes: Routes = [
@@ -28,10 +31,14 @@ const routes: Routes = [
   {path:'cursos', component:CursosComponent},
   {path:'curso', component:CursoComponent},
   {path:'micurso/:id', component:MicursoComponent},
+  {path:'miscursos', component:MiscursosComponent},
   {path:'certificados', component:CertificadosComponent},
   {path:'ofertas', component:OfertasComponent},
   {path: 'ofertas/oferta',  component: OfertaComponent},
   {path:'profesional', component:HomeProComponent},
+  {path:'profesional/crearcurso', component:CursoproComponent},
+  {path:'profesional/ofertas', component:OfertasproComponent},
+  {path:'profesional/ofertas/ofertalaboral', component:OfertalaboralComponent},
   {path:'crear-ofertas', component:CrearOfertasComponent},
   {path:'profesional/crearcurso', component:CursoproComponent}
 ];

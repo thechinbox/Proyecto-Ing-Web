@@ -16,7 +16,7 @@
 .actual{
     outline: rgb(51,78,113) 2px solid;
     border: white 4px solid;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 .last::before{
     background: none;
@@ -28,7 +28,7 @@ textarea{
 }
 button{
     color: white;
-    border-radius: 100px;
+    border-radius: 50%;
     font-size: 0px;
     height: 30px;
     width: 30px;
@@ -44,7 +44,7 @@ button:disabled{
     flex-direction: column;
     align-content: center;
 }
-@media (min-width: 800px){
+@media (min-width: 1400px){
 #progress-bar::before {
     background: rgb(51,78,113) none repeat scroll 0 0;
     content: "";

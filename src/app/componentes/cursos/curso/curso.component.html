@@ -1,10 +1,10 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-1 side"></div>
-        <div class="col-10">
+        <div class="col-1  d-none d-md-block side"></div>
+        <div class="col-md-10">
             <h1 class="m-5"> Contenido de Este Curso </h1>
-            <div class="row centrado ">
+            <div class="row centrado " class="overflow-auto">
                 <div *ngFor="let item of modulos" class="col-12 centrado">
                     <div *ngFor="let clase of item.clases"  class="col-10 mb-5 bg-card">
                         <div class="row">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row ">
+            <div class="row mt-5 ">
                 <div class="col-lg-6 mb-2 centrado">
                     <button type="button"  [routerLink]="'/cursos'" class="btn bg-darkblue btn-lg">Buscar Otro curso</button>
                 </div>
@@ -26,6 +26,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-1 side"></div>
+        <div class="col-1  d-none d-md-block side"></div>
     </div>
 </div>

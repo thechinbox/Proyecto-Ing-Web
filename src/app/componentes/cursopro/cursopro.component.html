@@ -21,10 +21,7 @@
                     <h2>Crear Modulos del Curso y Clases del Modulo</h2>
                 </div>
                 <div class="col-md-10 form-group">
-                    <app-modulo  class="row"></app-modulo>
-                    <div class="centrado mt-4">
-                        <button class="btn btn-lg bg-darkblue">Añadir Modulo</button>
-                    </div>
+                    <app-modulo  (addmodulo)='addmodulo($event)' class="row"></app-modulo>
                 </div>
             </form>
 

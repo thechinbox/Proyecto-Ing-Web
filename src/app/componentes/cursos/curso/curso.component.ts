@@ -13,7 +13,8 @@ export class CursoComponent implements OnInit, OnDestroy {
   modulos:Array<modulo> | undefined;
 
   constructor(public router:Router, public http:CursosService) {
-    
+      
+      
   }
 
   participar(){
@@ -51,6 +52,9 @@ export class CursoComponent implements OnInit, OnDestroy {
         this.modulos = datos;
       })
     } 
+    window.onbeforeunload = () =>{ 
+      this.ngOnDestroy();
+    }
   }
   ngOnDestroy(): void {
     sessionStorage.removeItem("clavecurso")
