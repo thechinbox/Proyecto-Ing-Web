@@ -25,5 +25,7 @@ export class CursoproComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addmodulo(e:any){
+    
+  }
 }

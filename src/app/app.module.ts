@@ -28,6 +28,9 @@ import { HomeProComponent } from './componentes/home/home-pro/home-pro.component
 import { HeaderproComponent } from './componentes/header/headerpro/headerpro.component';
 import { CursoproComponent } from './componentes/cursopro/cursopro.component';
 import { ModuloComponent } from './componentes/cursopro/modulo/modulo.component';
+import { MiscursosComponent } from './componentes/cursos/miscursos/miscursos/miscursos.component';
+import { OfertasproComponent } from './componentes/ofertaspro/ofertaspro.component';
+import { OfertalaboralComponent } from './componentes/ofertaspro/ofertalaboral/ofertalaboral.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { ModuloComponent } from './componentes/cursopro/modulo/modulo.component'
     HeaderproComponent,
     CursoproComponent,
     ModuloComponent,
+    MiscursosComponent,
+    OfertasproComponent,
+    OfertalaboralComponent
   ],
   imports: [
     BrowserModule,

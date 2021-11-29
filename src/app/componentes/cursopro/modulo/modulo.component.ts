@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { clase } from 'src/app/interfaces/clase';
 import { modulo } from 'src/app/interfaces/modulo';
@@ -15,6 +15,8 @@ export class ModuloComponent implements OnInit {
   length = 0;
   edit:boolean;
   idedit:number;
+  erredit:boolean;
+  @Output() moduloE:EventEmitter<String> = new EventEmitter();
 
   constructor(public Form:FormBuilder) {
     this.claseF = this.Form.group({
@@ -25,16 +27,19 @@ export class ModuloComponent implements OnInit {
     this.moduloF = this.Form.group({
       nombres:["",Validators.compose([Validators.nullValidator, Validators.required])],
       descripcion:["",Validators.compose([Validators.nullValidator, Validators.required])],
-    })  
+    })    
     this.clases = new Array(); 
     this.edit = false;
     this.idedit = 0;
+    this.erredit = false;
   }
 
   ngOnInit(): void {
-    let err:any = document.getElementById("errEdit");
-      err.style.display = "none"
-
+    let addmodulo:any = document.querySelector("#addmodulo");
+    addmodulo.addEventListener('click', (e:any) => {
+      console.log("yeps");
+      
+    }) 
   }
   canceledit(){
     this.idedit= 0; 
@@ -57,10 +62,9 @@ export class ModuloComponent implements OnInit {
       console.log(this.clases);
     }
     else{
-      let err:any = document.getElementById("errEdit");
-      err.style.display = "flex"
+      this.erredit = true;
       setTimeout(() => {
-        err.style.display = "none"
+        this.erredit = false;
       }, 3000);  //3s
     }
     
@@ -97,5 +101,9 @@ export class ModuloComponent implements OnInit {
     this.idedit= 0; 
     this.edit = false;
     this.claseF.reset();
+  }
+  
+  addmodulo(){
+
   }
 }

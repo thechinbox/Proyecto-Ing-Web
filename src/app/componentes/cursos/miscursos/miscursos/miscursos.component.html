@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1 col-12 d-none d-md-block side"></div>
+        <div class="col-md-10">
+            <h1 class="px-md-5 pt-md-4 pt-2 px-2">Mis Cursos</h1>
+            <div class="row">
+                <div *ngFor="let item of cursos" class="col-lg-6 col-12 centrado">
+                    <div class="card w-50 " style="width: 18rem;">
+                        <img class="card-img-top" src="../../../assets/cursos/curso.jpg" alt="Card image cap">
+                        <button class="btn-img" (click)="traspaso(item.clavecurso)" [routerLink]="['/curso']"><span class="material-icons-outlined"> play_arrow </span></button>
+                        <div class="card-body bg-card">
+                            <h3 class="card-title">{{item.clavecurso}} - {{item.nombrecurso}} </h3>
+                            <p class="card-text">{{item.descripcion}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-12 d-none d-md-block side"></div>
+    </div>
+</div>

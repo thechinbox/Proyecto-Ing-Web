@@ -31,7 +31,7 @@
 
             </div>
         </div>
-        <div id="errEdit" class="col-12 my-5 px-5 ">
+        <div *ngIf="erredit" class="col-12 my-5 px-5 ">
             <h4 class="bg-danger ">No es posible eliminar una clase mientras se esta editando</h4>
         </div>
 
@@ -73,3 +73,6 @@
         
     </div>
 </form>
+<div class="col-12 centrado mt-4">
+    <button id="addmodulo" [disabled]="claseF.invalid" class="btn btn-lg bg-darkblue">Añadir Modulo</button>
+</div>

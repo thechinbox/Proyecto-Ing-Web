@@ -24,6 +24,10 @@ export class CursosService {
     return this.http.post(`${environment.hostname}/getcursos`, JSON.stringify({"rut":rut}), this.HttpUploadOptions)
   }
   GETCURSO(rut:any,clavecurso:any):Observable<any>{
+    console.log(clavecurso);
+    console.log(rut);
+    
+    
     return this.http.post(`${environment.hostname}/getcurso`, JSON.stringify({"rut":rut,"clavecurso":clavecurso}), this.HttpUploadOptions)
   }
   POSTPARTC(rut:any,clavecurso:any):Observable<any>{
