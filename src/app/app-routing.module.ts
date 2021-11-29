@@ -15,6 +15,7 @@ import { OfertasComponent } from './componentes/ofertaslaborales/ofertas.compone
 import { OfertaComponent } from './componentes/ofertaslaborales/oferta/oferta.component';
 import { HomeProComponent } from './componentes/home/home-pro/home-pro.component';
 import { CursoproComponent } from './componentes/cursopro/cursopro.component';
+import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component'
 
 const routes: Routes = [
   {path:'', component:LoginComponent, pathMatch:"full"},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'ofertas', component:OfertasComponent},
   {path: 'ofertas/oferta',  component: OfertaComponent},
   {path:'profesional', component:HomeProComponent},
+  {path:'crear-ofertas', component:CrearOfertasComponent},
   {path:'profesional/crearcurso', component:CursoproComponent}
 ];
 

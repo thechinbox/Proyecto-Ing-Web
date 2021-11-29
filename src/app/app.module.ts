@@ -28,6 +28,7 @@ import { HomeProComponent } from './componentes/home/home-pro/home-pro.component
 import { HeaderproComponent } from './componentes/header/headerpro/headerpro.component';
 import { CursoproComponent } from './componentes/cursopro/cursopro.component';
 import { ModuloComponent } from './componentes/cursopro/modulo/modulo.component';
+import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ModuloComponent } from './componentes/cursopro/modulo/modulo.component'
     HeaderproComponent,
     CursoproComponent,
     ModuloComponent,
+    CrearOfertasComponent,
   ],
   imports: [
     BrowserModule,
