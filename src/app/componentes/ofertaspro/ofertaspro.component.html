@@ -7,8 +7,8 @@
                 <div class="col-md-4 border-right">
 
                 </div>
-                <div class="col-md-8 mt-5" data-spy="scroll" data-target=".scrollable" data-offset="0">
-                    <div class="row centrado">
+                <div class="col-md-8 mt-5 overflow-auto lista">
+                    <div class="row centrado ">
                         <div type="button" [routerLink]="['/profesional/ofertas/ofertalaboral']" (click)="verOferta(oferta)" class="col-10 mb-5 " *ngFor="let oferta of ofertas">
                             <div class="card oferta px-3 scrollable">
                                 <h2 class="card-title mx-1">{{oferta.cargo}}</h2>
