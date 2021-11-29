@@ -1,15 +1,40 @@
-div{
+#opciones{
     text-align: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 200px;
 }
-button {
+button{
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 30px 47px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
     background-color: #008CBA;
-  }
+}
+p{
+    font-size: 20px;
+}
+#side{
+    background-image: url("https://images.squarespace-cdn.com/content/v1/577ba8c9f5e231f12b5e2341/1496527241250-VJRAZLD671X2E0014FD1/No+Noise.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height: 100vh;
+    max-height: 100%;
+    width: auto;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
