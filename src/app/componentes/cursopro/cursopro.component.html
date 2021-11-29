@@ -1,0 +1,34 @@
+<app-headerpro></app-headerpro>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1  d-none d-md-block side"></div>
+        <div class="col-md-10 mt-3">
+            <h1 class="centrado">Creacion de Curso</h1>
+            <form [formGroup]="cursoF" class="row centrado">
+                <div class="col-md-8 form-group">
+                    <label class="mx-2">Nombre del Curso</label>
+                    <div>
+                        <input type="text" placeholder="Ej: Curso de Programacion en Java" class="form-control form-control-lg">
+                    </div>
+                </div>
+                <div class="col-md-8 form-group">
+                    <label class="mx-2">Descripcion del Curso</label>
+                    <div>
+                        <textarea class="w-100"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-10 centrado ">
+                    <h2>Crear Modulos del Curso y Clases del Modulo</h2>
+                </div>
+                <div class="col-md-10 form-group">
+                    <app-modulo  class="row"></app-modulo>
+                    <div class="centrado mt-4">
+                        <button class="btn btn-lg bg-darkblue">Añadir Modulo</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-1  d-none d-md-block side"></div>
+    </div>
+</div>

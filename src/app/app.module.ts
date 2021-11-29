@@ -24,6 +24,10 @@ import { LoginEmpresasComponent } from './componentes/login/login_empresas_profe
 import { LoginProfesionalComponent } from './componentes/login/login_empresas_profesionales/login-profesional/login-profesional.component';
 import { OfertasComponent } from './componentes/ofertaslaborales/ofertas.component';
 import { OfertaComponent } from './componentes/ofertaslaborales/oferta/oferta.component';
+import { HomeProComponent } from './componentes/home/home-pro/home-pro.component';
+import { HeaderproComponent } from './componentes/header/headerpro/headerpro.component';
+import { CursoproComponent } from './componentes/cursopro/cursopro.component';
+import { ModuloComponent } from './componentes/cursopro/modulo/modulo.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { OfertaComponent } from './componentes/ofertaslaborales/oferta/oferta.co
     LoginEmpresasComponent,
     OfertasComponent,
     OfertaComponent,
+    HomeProComponent,
+    HeaderproComponent,
+    CursoproComponent,
+    ModuloComponent,
   ],
   imports: [
     BrowserModule,

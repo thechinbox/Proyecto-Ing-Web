@@ -1,0 +1,75 @@
+<form [formGroup]="moduloF" class="col-md-6 my-2">
+    <div class="row left">
+        <div class="col-12 my-2">
+            <label>Nombre Modulo</label>
+            <div>
+                <input type="text" class="form-control form-control-lg">
+            </div>
+        </div>
+        <div class="col-12 my-2">
+            <label>Descripcion Modulo</label>
+            <div>
+                <textarea class="w-100"></textarea>
+            </div>
+        </div>
+        <div  class="col-12 my-2 px-5"  >
+            <div id="clases_a" class="row" class="overflow-auto">
+                <div class="col-12 centrado">
+                    <h4 >Clases Añadidas Para este Modulo</h4>
+                </div>
+                <div class="col-12  clase_a" *ngFor="let clase of clases" >
+                    <div class="row" >
+                        <span class="col-8 left align-content-center">Clase Numero {{clase.idclase}} - {{clase.nombre}}</span>
+                        <button type="button" class="btn btn-sm col-2 right" (click)="initEdit(clase.idclase)">
+                            <span class="material-icons-outlined pen"> edit </span>
+                        </button>
+                        <button type="button" class="btn btn-sm col-2 right" (click)="eliminarClase(clase.idclase)">
+                            <span  class="material-icons-outlined trash"> delete_forever </span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="errEdit" class="col-12 my-5 px-5 ">
+            <h4 class="bg-danger ">No es posible eliminar una clase mientras se esta editando</h4>
+        </div>
+
+    </div>
+</form>
+<form  [formGroup]="claseF" id="clase" class="col-md-6 my-2">
+    <div class="row">
+        <div *ngIf="edit" class="col-12 my-1 ">
+            <h2>Editor De Clase</h2>
+        </div>
+        <div class="col-12 my-2 form-group">
+            <label>Nombre Clase</label>
+            <div>
+                <input formControlName="nombre" type="text" class="form-control form-control-lg">
+            </div>
+        </div>  
+        <div class="col-12 my-2 form-group">
+            <label>Descripcion Clase</label>
+            <div>
+                <textarea formControlName="descripcion" class="w-100"></textarea>
+            </div>
+        </div>
+        <div class="col-12 my-2 form-group">
+            <label>Video Clase</label>
+            <div class="row">
+                <input id="video" type="file" formControlName="video" class="form-control-file col-10" id="exampleFormControlFile1">
+                <button *ngIf="!edit" id="addclase" class="btn btn-lg col-2 right" type="button" (click)="addClase()" [disabled]="claseF.invalid">
+                    <span class="material-icons-outlined add"> add_circle_outline</span>
+                </button>
+                <button *ngIf="edit" id="addclase" class="btn btn-lg col-1 right" type="button" (click)="canceledit()">
+                    <span class="material-icons-outlined add"> arrow_back</span>
+                </button>
+                <button *ngIf="edit" id="addclase" class="btn btn-lg col-1 right" type="button" (click)="editClase()" [disabled]="claseF.invalid">
+                    <span class="material-icons-outlined add"> add_circle_outline</span>
+                </button>
+                <p class="col-12" *ngIf="edit"> Por razones de seguridad seleccione nuevamente el archivo</p>
+            </div>
+        </div>
+        
+    </div>
+</form>

@@ -13,6 +13,8 @@ import { LoginEmpresasComponent } from './componentes/login/login_empresas_profe
 import { LoginProfesionalComponent } from './componentes/login/login_empresas_profesionales/login-profesional/login-profesional.component' ; 
 import { OfertasComponent } from './componentes/ofertaslaborales/ofertas.component';
 import { OfertaComponent } from './componentes/ofertaslaborales/oferta/oferta.component';
+import { HomeProComponent } from './componentes/home/home-pro/home-pro.component';
+import { CursoproComponent } from './componentes/cursopro/cursopro.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent, pathMatch:"full"},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path:'micurso/:id', component:MicursoComponent},
   {path:'certificados', component:CertificadosComponent},
   {path:'ofertas', component:OfertasComponent},
-  {path: 'ofertas/oferta',  component: OfertaComponent }
+  {path: 'ofertas/oferta',  component: OfertaComponent},
+  {path:'profesional', component:HomeProComponent},
+  {path:'profesional/crearcurso', component:CursoproComponent}
 ];
 
 @NgModule({
