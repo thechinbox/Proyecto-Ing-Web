@@ -37,8 +37,9 @@ export class ModuloComponent implements OnInit {
   ngOnInit(): void {
     let addmodulo:any = document.querySelector("#addmodulo");
     addmodulo.addEventListener('click', (e:any) => {
-      console.log("yeps");
-      
+      if(this.clases.length <=0){
+
+      }
     }) 
   }
   canceledit(){
