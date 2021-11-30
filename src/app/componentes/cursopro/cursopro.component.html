@@ -39,10 +39,9 @@
                     <h2>Crear Modulos del Curso y Clases del Modulo</h2>
                 </div>
                 <div class="col-md-10 form-group">
-                    <app-modulo  (addmodulo)='addmodulo($event)' class="row"></app-modulo>
+                    <app-modulo [id]="modulos.length" (addmodulo)='addmodulo($event)' class="row"></app-modulo>
                 </div>
             </form>
-
         </div>
         <div class="col-1  d-none d-md-block side"></div>
     </div>

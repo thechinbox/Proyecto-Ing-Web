@@ -34,6 +34,17 @@ export class CursoproComponent implements OnInit {
 
   }
   eliminarmodulo(id:number){
+    for(let i in this.modulos){
+      if(this.modulos[i].id == id){
+        delete this.modulos[i];       
+      }
+    }
+    this.modulos = this.modulos.filter(value => Object.keys(value).length !== 0); 
+    for(let i in this.modulos){
+      if(this.modulos[i].id > id){
+        this.modulos[i].id = this.modulos[i].id - 1;
+      }
+    }
 
   }
 }

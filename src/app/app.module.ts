@@ -32,6 +32,7 @@ import { MiscursosComponent } from './componentes/cursos/miscursos/miscursos/mis
 import { OfertasproComponent } from './componentes/ofertaspro/ofertaspro.component';
 import { OfertalaboralComponent } from './componentes/ofertaspro/ofertalaboral/ofertalaboral.component';
 import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component';
+import { ModuloeditComponent } from './componentes/cursopro/moduloedit/moduloedit.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofer
     OfertasproComponent,
     OfertalaboralComponent,
     CrearOfertasComponent,
+    ModuloeditComponent,
   ],
   imports: [
     BrowserModule,

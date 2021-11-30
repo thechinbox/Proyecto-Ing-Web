@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { clase } from 'src/app/interfaces/clase';
 import { modulo } from 'src/app/interfaces/modulo';
@@ -8,7 +8,9 @@ import { modulo } from 'src/app/interfaces/modulo';
   templateUrl: './modulo.component.html',
   styleUrls: ['./modulo.component.scss']
 })
-export class ModuloComponent implements OnInit {
+export class ModuloComponent implements OnInit, OnChanges {
+  @Input() id:any;
+  @Output() addmodulo:EventEmitter<modulo> = new EventEmitter();
   clases:Array<clase>;
   moduloF:FormGroup;
   claseF:FormGroup;
@@ -18,7 +20,7 @@ export class ModuloComponent implements OnInit {
   erredit:boolean;
   erraddmod:boolean;
   modulo:modulo;
-  @Output() addmodulo:EventEmitter<modulo> = new EventEmitter();
+  
 
   constructor(public Form:FormBuilder) {
     this.claseF = this.Form.group({
@@ -39,6 +41,7 @@ export class ModuloComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.id);
     let boton:any = document.querySelector("#addmodulo");
     boton.addEventListener('click', (e:any) => {
       if(this.clases.length <=0){
@@ -48,16 +51,26 @@ export class ModuloComponent implements OnInit {
         }, 3000);  //3s}
       }else{
         let mf_v = this.moduloF.value;
-        this.modulo.id = 1;
+        this.modulo.id = this.id + 1;
         this.modulo.nombre = mf_v.nombreM;
         this.modulo.descripcion = mf_v.descripcionM;
-        this.modulo.clases = this.clases;  
-        console.log(this.modulo);
-              
-        this.addmodulo.emit(this.modulo);
+        this.modulo.clases = Object.assign([], this.clases);  
+        this.addmodulo.emit(Object.assign({},this.modulo));
+        this.clases = new Array<clase>();
+        this.moduloF.reset()
+        this.claseF.reset()
+        this.modulo = {"id":0,"descripcion":"","nombre":"","video":"","clases": new Array<clase>()}
       }
     }) 
   }
+
+  ngOnChanges(changes:SimpleChanges){
+    if(changes["id"]){
+      console.log(this.id);
+      
+    }
+  }
+
   canceledit(){
     this.idedit= 0; 
     this.edit = false;
