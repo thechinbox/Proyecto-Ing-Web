@@ -3,6 +3,9 @@ import {environment} from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { progreso } from 'src/app/interfaces/progreso';
+import { curso } from 'src/app/interfaces/curso';
+import { modulo } from 'src/app/interfaces/modulo';
+import { clase } from 'src/app/interfaces/clase';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +49,16 @@ export class CursosService {
   POSTFIN(progreso:progreso,rut:any, tiempoestudio:any):Observable<any>{
     return this.http.post(`${environment.hostname}/postfin`, 
                           JSON.stringify({"idmodulo":progreso.idmodulo,"idclase":progreso.idclase,"rut":rut,"clavecurso":progreso.clavecurso, "tiempoestudio":tiempoestudio}), this.HttpUploadOptions)
+  }
+  POSTCURSO(curso:curso, rut:any, publicar:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postcurso`, JSON.stringify({"curso":curso, "publicar":publicar, "rut": rut}), this.HttpUploadOptions)
+  }
+  POSTMODULO(clavecurso:any,modulo:modulo):Observable<any>{
+    return this.http.post(`${environment.hostname}/postmodulo`, JSON.stringify({"clavecurso":clavecurso, "modulo":modulo}), this.HttpUploadOptions)
+  }
+  POSTCLASE(clavecurso:any, idmodulo:any, clase:clase):Observable<any>{
+    console.log(clavecurso);
+    
+    return this.http.post(`${environment.hostname}/postclase`, JSON.stringify({"clavecurso":clavecurso, "idmodulo":idmodulo, "clase":clase}), this.HttpUploadOptions)
   }
 }

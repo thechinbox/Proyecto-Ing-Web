@@ -1,0 +1,30 @@
+textarea{
+    min-height: 150px ;
+    resize: none;
+}
+#clase{
+    border: 1px black dotted;
+}
+#addclase{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    top: -20px;
+}
+.material-icons-outlined{
+    font-size: 50px;
+}
+.trash, .pen{
+    font-size: 40px;   
+}
+.clase_a{
+    border: 1px dashed black;
+    
+}
+#clases_a{
+    border: 1px dashed black;
+    max-height: 100px;
+}
+#terminar{
+    color: white;
+}

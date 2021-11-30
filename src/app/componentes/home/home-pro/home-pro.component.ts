@@ -11,7 +11,7 @@ export class HomeProComponent implements OnInit {
   constructor(public router:Router) {
     if(sessionStorage.getItem("rutpro") == null ){
       if(localStorage.getItem("rutpro") == null){
-        this.router.navigate(['']);
+        this.router.navigate(['/profesional']);
       }
     }
   }

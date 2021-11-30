@@ -28,9 +28,9 @@ export class MicursoComponent implements OnInit, OnDestroy {
     this.tiempoestudio = 0;
     this.reload = false;
     this.clase_actual = {"idclase": 0, "nombre":'',"descripcion":'',"video":'',"duracionclase": 0}
-    this.modulo_actual = {"id": 0,"nombre":'',"descripcion":'',"video":"","clases": new Array<clase>()}
+    this.modulo_actual = {"id": 0,"nombre":'',"descripcion":'',"clases": new Array<clase>()}
     this.clase_progreso = {"idclase": 0, "nombre":'',"descripcion":'',"video":'',"duracionclase": 0}
-    this.modulo_progreso = {"id": 0,"nombre":'', "descripcion":'',"video":"","clases": new Array<clase>()}
+    this.modulo_progreso = {"id": 0,"nombre":'', "descripcion":'',"clases": new Array<clase>()}
     this.progreso = {"clavecurso":0,"idclase":0,"idmodulo":0,"rut":' '};
     this.curso = {"clavecurso": 1111111111, "profesor": '', "nombrecurso": ' ', "descripcion":' ', "modulos": new Array<modulo>()}
     this.idlastclase = 0;

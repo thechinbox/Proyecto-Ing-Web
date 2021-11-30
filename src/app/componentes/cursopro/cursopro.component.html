@@ -3,26 +3,40 @@
     <div class="row">
         <div class="col-1  d-none d-md-block side"></div>
         <div class="col-md-10 mt-3">
-            <h1 class="centrado">Creacion de Curso</h1>
+            <div class="row">
+                <div class="col-12 centrado">
+                    <h1>Creacion de Curso</h1>    
+                    <button [disabled]="cursoF.invalid" type="button" (click)="postCurso()" class="btn btn-lg addcurso" title="Añadir Curso">
+                        <span class="material-icons-outlined add"> library_add </span>
+                    </button> 
+                </div>
+            </div>
             <form [formGroup]="cursoF" class="row centrado">
-                <div class="col-md-8 form-group">
+                <div *ngIf="errPostCurso" class="col-md-8 bg-danger centrado my-md-2 my-3">
+                    <h3>No se puede publicar un curso sin modulos</h3>
+                </div>
+                <div class="col-md-8 my-md-2 my-3 form-group">
                     <label class="mx-2">Nombre del Curso</label>
                     <div>
-                        <input type="text" placeholder="Ej: Curso de Programacion en Java" class="form-control form-control-lg">
+                        <input formControlName="nombre" type="text" placeholder="Ej: Curso de Programacion en Java" class="form-control form-control-lg">
                     </div>
                 </div>
-                <div class="col-md-8 form-group">
+                <div class="col-md-8 my-md-2 my-3 form-group">
                     <label class="mx-2">Descripcion del Curso</label>
                     <div>
-                        <textarea class="w-100"></textarea>
+                        <textarea formControlName="descripcion" class="w-100"></textarea>
                     </div>
+                </div>
+                <div class="col-md-8 my-md-2 my-3 form-check">
+                    <label class="form-check-label mr-5" for="flexCheckChecked"> Publicar de Inmediato : </label>
+                    <input formControlName="publicar" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                 </div>
                 <div *ngIf="modulos.length >0" class="col-md-8 form-group">
                     <div class="centrado">
                         <h2 class="mx-2">Modulos del curso</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-12" *ngFor="let modulo of modulos"> 
+                    <div class="row lista overflow-auto">
+                        <div class="col-12 border-bottom" *ngFor="let modulo of modulos  "> 
                             <div class="row"> 
                                 <span class="col-8 left align-content-center">Modulo Numero {{modulo.id}} - {{modulo.nombre}}</span>
                                 <button type="button" class="btn btn-sm col-2 right" (click)="initEditM(modulo.id)">
@@ -38,8 +52,12 @@
                 <div class="col-md-10 centrado ">
                     <h2>Crear Modulos del Curso y Clases del Modulo</h2>
                 </div>
+                <div *ngIf="erreditM" class="col-md-10 centrado bg-danger">
+                    <h3>No se puede editar un modulo mientras se esta editando</h3>
+                </div>
                 <div class="col-md-10 form-group">
-                    <app-modulo [id]="modulos.length" (addmodulo)='addmodulo($event)' class="row"></app-modulo>
+                    <app-modulo *ngIf="!editM" [id]="modulos.length" (addmodulo)='addmodulo($event)' class="row"></app-modulo>
+                    <app-moduloedit *ngIf="editM" (endEdit)='endEdit($event)' [modulo]="moduloEdit" class="row"></app-moduloedit>
                 </div>
             </form>
         </div>

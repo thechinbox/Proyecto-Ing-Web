@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { clase } from 'src/app/interfaces/clase';
 import { modulo } from 'src/app/interfaces/modulo';
 
@@ -22,11 +23,17 @@ export class ModuloComponent implements OnInit, OnChanges {
   modulo:modulo;
   
 
-  constructor(public Form:FormBuilder) {
+  constructor(public router:Router, public Form:FormBuilder) {
+    if(sessionStorage.getItem("rutpro") == null ){
+      if(localStorage.getItem("rutpro") == null){
+        this.router.navigate(['/profesional']);
+      }
+    }
     this.claseF = this.Form.group({
       nombre:["",Validators.compose([Validators.nullValidator, Validators.required])],
       descripcion:["",Validators.compose([Validators.nullValidator, Validators.required])],
-      video:["",Validators.compose([Validators.nullValidator, Validators.required])]
+      video:["",Validators.compose([Validators.nullValidator, Validators.required])],
+      duracion:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.min(0)])]
     }) 
     this.moduloF = this.Form.group({
       nombreM:["",Validators.compose([Validators.nullValidator, Validators.required])],
@@ -37,7 +44,7 @@ export class ModuloComponent implements OnInit, OnChanges {
     this.idedit = 0;
     this.erredit = false;
     this.erraddmod = false;
-    this.modulo = {"id":0,"descripcion":"","nombre":"","video":"","clases": new Array<clase>()}
+    this.modulo = {"id":0,"descripcion":"","nombre":"","clases": new Array<clase>()}
   }
 
   ngOnInit(): void {
@@ -59,7 +66,7 @@ export class ModuloComponent implements OnInit, OnChanges {
         this.clases = new Array<clase>();
         this.moduloF.reset()
         this.claseF.reset()
-        this.modulo = {"id":0,"descripcion":"","nombre":"","video":"","clases": new Array<clase>()}
+        this.modulo = {"id":0,"descripcion":"","nombre":"","clases": new Array<clase>()}
       }
     }) 
   }
@@ -70,7 +77,6 @@ export class ModuloComponent implements OnInit, OnChanges {
       
     }
   }
-
   canceledit(){
     this.idedit= 0; 
     this.edit = false;
@@ -97,13 +103,12 @@ export class ModuloComponent implements OnInit, OnChanges {
         this.erredit = false;
       }, 3000);  //3s
     }
-    
-    
   }
 
   addClase(){
     let valores = this.claseF.value;
-    this.clases.push({"idclase":this.clases.length + 1,"nombre":valores.nombre,"descripcion":valores.descripcion, "video":this.claseF.value.video, "duracionclase":0});
+    this.clases.push({"idclase":this.clases.length + 1,"nombre":valores.nombre,"descripcion":valores.descripcion, 
+                      "video":this.claseF.value.video, "duracionclase":valores.duracion});
     console.log(this.clases);
     this.claseF.reset();
   }
@@ -115,6 +120,7 @@ export class ModuloComponent implements OnInit, OnChanges {
       if(clase.idclase == this.idedit){
         this.claseF.controls['nombre'].setValue(clase.nombre)
         this.claseF.controls['descripcion'].setValue(clase.descripcion)
+        this.claseF.controls['duracion'].setValue(clase.duracionclase)
       }
     }
   }
@@ -126,6 +132,7 @@ export class ModuloComponent implements OnInit, OnChanges {
         clase.nombre = this.claseF.value.nombre;
         clase.descripcion = this.claseF.value.descripcion;
         clase.video = this.claseF.value.video;
+        clase.video = this.claseF.value.duracion;
       }
     }
     this.idedit= 0; 
