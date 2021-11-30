@@ -19,6 +19,7 @@ import { MiscursosComponent } from './componentes/cursos/miscursos/miscursos/mis
 import { OfertasproComponent } from './componentes/ofertaspro/ofertaspro.component';
 import { OfertalaboralComponent } from './componentes/ofertaspro/ofertalaboral/ofertalaboral.component';
 import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component'
+import { SinpublicarComponent } from './componentes/cursopro/sinpublicar/sinpublicar.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent, pathMatch:"full"},
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path:'profesional/ofertas', component:OfertasproComponent},
   {path:'profesional/ofertas/ofertalaboral', component:OfertalaboralComponent},
   {path:'crear-ofertas', component:CrearOfertasComponent},
-  {path:'profesional/crearcurso', component:CursoproComponent}
+  {path:'profesional/crearcurso', component:CursoproComponent},
+  {path:'profesional/sinpublicar', component:SinpublicarComponent}
 ];
 
 @NgModule({

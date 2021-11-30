@@ -12,6 +12,9 @@
       <li class="nav-item mx-3 mt-1" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']"> 
         <a class="nav-link px-4" [routerLink]="'/profesional'" (click)="isMenuCollapsed = true">Mis Cursos</a>
       </li>
+      <li class="nav-item mx-3 mt-1" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link px-4" [routerLink]="'/profesional/sinpublicar'" (click)="isMenuCollapsed = true">Cursos Sin Publicar</a>
+      </li>
       <li class="nav-item mx-3 mt-1" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']"> 
         <a class="nav-link px-4" [routerLink]="'/profesional/ofertas'"  (click)="isMenuCollapsed = true">Bolsa</a>
       </li>

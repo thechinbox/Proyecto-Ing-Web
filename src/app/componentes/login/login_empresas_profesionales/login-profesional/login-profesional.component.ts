@@ -18,8 +18,10 @@ export class LoginProfesionalComponent implements OnInit {
   err1:boolean;
   log:boolean;
   constructor(public form:FormBuilder, private http:LoginService, public router:Router ) {
-    if(sessionStorage.getItem("rutpro") != null || localStorage.getItem("rutpro")  != null){
-      this.router.navigate(['profesional'])
+    if(sessionStorage.getItem("rut") != null || localStorage.getItem("rut")  != null){
+      this.router.navigate(['home'])
+    }else if(sessionStorage.getItem("rutpro") != null || localStorage.getItem("rutpro")  != null){
+      this.router.navigate(['/profesional'])
     }
     this.formulariopro = this.form.group({
       email:["",Validators.compose([Validators.nullValidator, Validators.required, Validators.email])],

@@ -26,12 +26,20 @@ export class CursosService {
   GETCURSOS(rut:any):Observable<any>{
     return this.http.post(`${environment.hostname}/getcursos`, JSON.stringify({"rut":rut}), this.HttpUploadOptions)
   }
+  GETCURSOSPRO(rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getcursospro`, JSON.stringify({"rut":rut, "publicado":true}), this.HttpUploadOptions)
+  }
   GETCURSO(rut:any,clavecurso:any):Observable<any>{
-    console.log(clavecurso);
-    console.log(rut);
-    
-    
     return this.http.post(`${environment.hostname}/getcurso`, JSON.stringify({"rut":rut,"clavecurso":clavecurso}), this.HttpUploadOptions)
+  }
+  GETCURSOS_NOP(rut:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getcursospro`, JSON.stringify({"rut":rut, "publicado":false}), this.HttpUploadOptions)
+  }
+  POSTPUB(clavecurso:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postpublicar`, JSON.stringify({"clavecurso":clavecurso}), this.HttpUploadOptions)
+  }
+  POSTCERRAR(clavecurso:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postcerrar`, JSON.stringify({"clavecurso":clavecurso}), this.HttpUploadOptions)
   }
   POSTPARTC(rut:any,clavecurso:any):Observable<any>{
     return this.http.post(`${environment.hostname}/participar`, JSON.stringify({"rut":rut,"clavecurso":clavecurso}), this.HttpUploadOptions)
@@ -58,7 +66,6 @@ export class CursosService {
   }
   POSTCLASE(clavecurso:any, idmodulo:any, clase:clase):Observable<any>{
     console.log(clavecurso);
-    
     return this.http.post(`${environment.hostname}/postclase`, JSON.stringify({"clavecurso":clavecurso, "idmodulo":idmodulo, "clase":clase}), this.HttpUploadOptions)
   }
 }

@@ -19,6 +19,8 @@ export class CursoproComponent implements OnInit {
   editM:boolean;
   erreditM:boolean;
   errPostCurso:boolean;
+  pub:boolean;
+  end:boolean;
 
   constructor(public router:Router, public Form:FormBuilder, private http:CursosService) {
     if(sessionStorage.getItem("rutpro") == null ){
@@ -37,6 +39,8 @@ export class CursoproComponent implements OnInit {
     this.editM = false;
     this.erreditM = false;
     this.errPostCurso = false;
+    this.pub = false;
+    this.end = false;
   }
 
   ngOnInit(): void {
@@ -62,6 +66,21 @@ export class CursoproComponent implements OnInit {
       this.http.POSTCLASE(clavecurso, id, clase).subscribe(datos => {
         console.log(datos);
       })
+      if(clase.idclase == this.modulos[this.modulos.length - 1].clases[this.modulos[this.modulos.length - 1].clases.length - 1].idclase){
+        this.cursoF.reset()
+        this.end = true;
+        if(this.pub){
+          setTimeout(() => {
+            this.router.navigate(["'/profesional'"])
+          }, 3000);  //5s
+        }else{
+          setTimeout(() => {
+            this.router.navigate(["'/profesional/sinpublicar'"])
+          }, 3000);  //5s
+        }
+        this.modulos = new Array<modulo>()
+        this.curso = {"clavecurso":0,"descripcion":"","modulos":this.modulos,"nombrecurso":"","profesor":""}
+      }
     }
   }
   postmodulo(clavecurso:any){
@@ -79,18 +98,18 @@ export class CursoproComponent implements OnInit {
       this.curso.nombrecurso = mf_v.nombre;
       this.curso.descripcion = mf_v.descripcion;
       this.curso.profesor = this.curso.descripcion;
-      let pub = false;
+      
       if(mf_v.publicar != null && mf_v.publicar == true){
-        pub = true;
+        this.pub = true;
       }
       if(sessionStorage.getItem("rutpro") != null ){
-        this.http.POSTCURSO(this.curso, sessionStorage.getItem("rutpro"), pub).subscribe(datos => {
+        this.http.POSTCURSO(this.curso, sessionStorage.getItem("rutpro"), this.pub).subscribe(datos => {
           if(datos != null){
             this.postmodulo(datos)
           }
         })
       }else{
-        this.http.POSTCURSO(this.curso, sessionStorage.getItem("rutpro"), pub).subscribe(datos => {
+        this.http.POSTCURSO(this.curso, sessionStorage.getItem("rutpro"), this.pub).subscribe(datos => {
           if(datos != null){
             this.postmodulo(datos)
           }

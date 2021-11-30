@@ -1,15 +1,14 @@
-import { newArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { curso } from 'src/app/interfaces/curso';
 import { CursosService } from 'src/app/servicios/cursos/cursos.service';
 
 @Component({
-  selector: 'app-home-pro',
-  templateUrl: './home-pro.component.html',
-  styleUrls: ['./home-pro.component.scss']
+  selector: 'app-sinpublicar',
+  templateUrl: './sinpublicar.component.html',
+  styleUrls: ['./sinpublicar.component.scss']
 })
-export class HomeProComponent implements OnInit {
+export class SinpublicarComponent implements OnInit {
   cursos:Array<curso>;
   mostrar:boolean;
 
@@ -20,23 +19,20 @@ export class HomeProComponent implements OnInit {
         this.router.navigate(['/profesional']);
       }
       else{
-        this.http.GETCURSOSPRO(localStorage.getItem("rutpro")).subscribe(datos => {
+        this.http.GETCURSOS_NOP(localStorage.getItem("rutpro")).subscribe(datos => {
           this.cursos = datos;
         })
       }
     }else{
-      this.http.GETCURSOSPRO(sessionStorage.getItem("rutpro")).subscribe(datos => {
+      this.http.GETCURSOS_NOP(sessionStorage.getItem("rutpro")).subscribe(datos => {
         this.cursos = datos;
       })
     }
     this.mostrar = false;
-    
   }
 
-  cerrar(clavecurso:any){
-    console.log(clavecurso);
-    
-    this.http.POSTCERRAR(clavecurso).subscribe(datos =>{
+  publicar(clavecurso:any){
+    this.http.POSTPUB(clavecurso).subscribe(datos =>{
       if(datos.status == "ok"){
         this.mostrar = true;
         for(let i in this.cursos){  
@@ -51,7 +47,9 @@ export class HomeProComponent implements OnInit {
       }
     })
   }
+
   ngOnInit(): void {
+
   }
 
 }

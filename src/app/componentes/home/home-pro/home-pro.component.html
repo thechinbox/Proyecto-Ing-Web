@@ -3,10 +3,25 @@
     <div class="row">
         <div class="col-1 d-none d-md-block side"></div>
         <div class="col-md-10">
-            <h1 class="p-5">Mis Cursos</h1>
+            <h1 class="p-5">
+                Mis Cursos
+                <span *ngIf="mostrar"  class="material-icons-outlined green">
+                    check_circle
+                </span>
+            </h1>
             <div class="row centrado">
-                <div class="col-10 ">
-                    
+                <div class="col-md-10 ml-5">
+                    <div class="row w-100 border" *ngFor="let curso of cursos">
+                        <h2 class="col-8">{{curso.nombrecurso}}</h2>
+                        <div class="col-4 right">
+                            <button type="button" (click)="cerrar(curso.clavecurso)" class="btn btn-lg cerrar" title="Cerrar Curso">
+                                <span class="material-icons-outlined rotado"> publish </span>
+                            </button>
+                        </div>
+                        <div class="col-12">
+                            <h3>{{curso.descripcion}}</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

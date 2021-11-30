@@ -33,6 +33,7 @@ import { OfertasproComponent } from './componentes/ofertaspro/ofertaspro.compone
 import { OfertalaboralComponent } from './componentes/ofertaspro/ofertalaboral/ofertalaboral.component';
 import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component';
 import { ModuloeditComponent } from './componentes/cursopro/moduloedit/moduloedit.component';
+import { SinpublicarComponent } from './componentes/cursopro/sinpublicar/sinpublicar.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ModuloeditComponent } from './componentes/cursopro/moduloedit/moduloedi
     OfertalaboralComponent,
     CrearOfertasComponent,
     ModuloeditComponent,
+    SinpublicarComponent
   ],
   imports: [
     BrowserModule,

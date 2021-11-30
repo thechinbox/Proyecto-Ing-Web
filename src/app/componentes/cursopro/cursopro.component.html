@@ -10,6 +10,12 @@
                         <span class="material-icons-outlined add"> library_add </span>
                     </button> 
                 </div>
+                <div *ngIF="end" class="col-12 centrado">
+                    <div class="row bg-primary">
+                        <h1 class="col-12 centrado">Curso Ingresado Correctamente</h1>
+                        <h3 class="col-12 centrado">Redirigiendo a Mis Cursos</h3>
+                    </div>
+                </div>
             </div>
             <form [formGroup]="cursoF" class="row centrado">
                 <div *ngIf="errPostCurso" class="col-md-8 bg-danger centrado my-md-2 my-3">

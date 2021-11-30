@@ -64,7 +64,7 @@ export class RegistroComponent implements OnInit {
       }  
     )
     setTimeout(() => {
-      this.router.navigateByUrl('', {skipLocationChange: true})
+      this.router.navigateByUrl('')
     }, 5000);  //5s
     
   }

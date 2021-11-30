@@ -1,18 +1,15 @@
+.material-icons-outlined{
+    font-size: 75px;
+}
 .publicar{
     display: flex;   
     flex-wrap: wrap;
     position: absolute;
     top: -10px;
 }
-.rotado{
-    transform: rotate(180deg);
-    font-size: 50px;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-}
 .green{
     color: green;
     position: absolute;
     font-size: 45px;
+    top: 10px;
 }

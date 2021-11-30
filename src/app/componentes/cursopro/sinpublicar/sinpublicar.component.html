@@ -1,0 +1,32 @@
+<app-headerpro></app-headerpro>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 side d-none d-md-flex"></div>
+        <div class="col-md-10">
+            <div class="row centrado">
+                <div class="col-12">
+                    <h1 class="mx-5 mt-3">
+                        Cursos Sin Publicar 
+                        <span *ngIf="mostrar"  class="material-icons-outlined green">
+                            check_circle
+                        </span>
+                    </h1>
+                </div>
+                <div class="col-md-8 mt-3">
+                    <div class="row w-100 border" *ngFor="let curso of cursos">
+                        <h2 class="col-8">{{curso.nombrecurso}}</h2>
+                        <div class="col-4 right">
+                            <button type="button" (click)="publicar(curso.clavecurso)" class="btn btn-lg publicar" title="Publicar">
+                                <span class="material-icons-outlined"> publish </span>
+                            </button>
+                        </div>
+                        <div class="col-12">
+                            <h3>{{curso.descripcion}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1 side d-none d-md-flex"></div>
+    </div>
+</div>
