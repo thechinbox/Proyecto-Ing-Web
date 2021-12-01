@@ -11,6 +11,7 @@ import { OfertaslaboralesService } from 'src/app/servicios/ofertaaslaborales/ofe
 export class CrearOfertasComponent implements OnInit {
   countries:any = countries;
   formulario:FormGroup;
+  mensaje:boolean;
  
   constructor(private Form:FormBuilder, public router:Router, private http:OfertaslaboralesService) {
     if(sessionStorage.getItem("rutempresa") == null){
@@ -19,25 +20,42 @@ export class CrearOfertasComponent implements OnInit {
       }
     }
     this.formulario=this.Form.group({
-       fecha:['',Validators.required],
-       descripcion:['',Validators.required],
-       ubicacion:['',Validators.required],
-       cargo:['',Validators.required]
+       descripcion:["",Validators.compose([Validators.nullValidator, Validators.required])],
+       ubicacion:["",Validators.compose([Validators.nullValidator, Validators.required])],
+       cargo:["",Validators.compose([Validators.nullValidator, Validators.required])]
       }
     );
-  
+    this.mensaje = false;
   }
   
   ngOnInit(): void {
   }
+
   validacion(){
     let datos:any=[{
-      "fecha": this.formulario.get("fecha")?.value,
       "descripcion": this.formulario.get("descripcion")?.value,
       "ubicacion": this.formulario.get("ubicacion")?.value,
       "cargo": this.formulario.get("cargo")?.value
     }];
-    console.log(datos);
+    if(sessionStorage.getItem("rutempresa") != null){
+      this.http.POSTOFERTA(datos[0],datos[1],datos[2], sessionStorage.getItem("rutempresa")).subscribe(datos =>{
+        if(datos.status == "ok"){
+          this.mensaje = true;
+          setTimeout(() =>{
+            this.mensaje = false;
+          }, 3000)
+        }
+      })
+    }else{
+      this.http.POSTOFERTA(datos[0],datos[1],datos[2],sessionStorage.getItem("rutempresa")).subscribe(datos =>{
+        if(datos.status == "ok"){
+          this.mensaje = true;
+          setTimeout(() =>{
+            this.mensaje = false;
+          }, 3000)
+        }
+      })
+    }
   }
   
 }

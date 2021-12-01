@@ -47,4 +47,7 @@ export class OfertaslaboralesService {
   POSTSOL(idoferta:any, rut:any):Observable<any>{
     return this.http.post(`${environment.hostname}/postsolicitud`, JSON.stringify({"rut":rut,"idoferta":idoferta}), this.HttpUploadOptions);
   }
+  POSTOFERTA(cargo:any, descripcion:any, ubicacion:any, rutempresa:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/postoferta`, JSON.stringify({"rutempresa":rutempresa, "cargo":cargo, "descripcion":descripcion,"ubicacion":ubicacion}), this.HttpUploadOptions);
+  }
 } 

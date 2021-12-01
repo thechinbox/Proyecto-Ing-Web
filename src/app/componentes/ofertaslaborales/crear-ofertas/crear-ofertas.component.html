@@ -5,7 +5,10 @@
         <div class="col-md-10 ">
             <h1 class="centrado">Crea Oferta Laboral</h1>
             <div class="row centrado mt-5">
-                <form [formGroup]="formulario" class="col-md-10 centrado" (ngSubmit)="validacion()" novalidate>
+                <div *ngIf="mensaje" class="col-8 mb-5 centrado bg-success">
+                    <h2>Oferta Laboral Ingresada con Exito</h2>
+                </div>
+                <form *ngIf="!mensaje" [formGroup]="formulario" class="col-md-10 centrado" (ngSubmit)="validacion()" novalidate>
                     <ul>
                         <li>
                             <label>Cargo</label>
@@ -39,7 +42,7 @@
                         </li>
                         <li class="centrado">
                             <button class="btn btn-lg bg-darkblue" type="button">Cancel</button>
-                            <button type="button" class="btn btn-lg bg-darkblue" [disabled]="formulario.invalid">Crear</button>
+                            <button type="submit" class="btn btn-lg bg-darkblue" [disabled]="formulario.invalid">Crear</button>
                         </li>
                     </ul>
                 </form>
