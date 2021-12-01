@@ -14,10 +14,12 @@ export class HomeEmpresaComponent implements OnInit {
 
   constructor(public router:Router, private http: OfertaslaboralesService) {
     this.ofertas = new Array();
-    this.selector = 0;
-    sessionStorage.setItem("rutempresa",'99999999999')
-    console.log(sessionStorage.getItem("rutempresa"));
-    
+    this.selector = 0;    
+    if(sessionStorage.getItem("rutempresa") == null){
+      if(localStorage.getItem("rutempresa") == null){
+        this.router.navigate(['']);
+      }
+    }
     if(sessionStorage.getItem("rutempresa") != null){
       this.http.GETOFERTASEMPRESA(sessionStorage.getItem("rutempresa")).subscribe(datos => {
         if(datos.status){

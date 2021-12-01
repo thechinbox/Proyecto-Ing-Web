@@ -37,27 +37,25 @@ export class LoginEmpresasComponent implements OnInit {
 
   login(){    
     this.log = true;
-    let login:any = document.getElementById('sesion');
-    login.style.display = "flex"
     let form_val = this.formulario.value;      
-    this.http.LOGINCOMUN(form_val.email, form_val.password).subscribe(datos=>
-      {
+    this.http.LOGINEMPRESA(form_val.email, form_val.password).subscribe(datos=>{
+        console.log(datos);
+        
         if(datos.length == 0){
           this.err1 = true;
+
           this.log = false;
           setTimeout(() => {
             this.err1 = false;
           }, 3000);  //5s
-        }else{
-          console.log( datos[0].rut);
-          
+        }else{          
           if(form_val.recordar == true){
-            localStorage.setItem("rut", datos[0].rut)
+            localStorage.setItem("rutempresa", datos.rutempresa)
           }
           else{
-            sessionStorage.setItem("rut", datos[0].rut)
+            sessionStorage.setItem("rutempresa", datos.rutempresa)
           }
-          this.router.navigate(['home'])
+          this.router.navigate(['/empresa'])
         }
       }
     )

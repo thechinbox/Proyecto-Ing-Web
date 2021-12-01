@@ -25,5 +25,8 @@ export class LoginService {
   LOGINPRO(email:string,clave:string):Observable<any>{
     return this.http.post(`${environment.hostname}/loginpro`,JSON.stringify({"email":email,"clave":clave}),this.HttpUploadOptions)
   }
+  LOGINEMPRESA(email:string,clave:string):Observable<any>{
+    return this.http.post(`${environment.hostname}/loginempresa`,JSON.stringify({"email":email,"clave":clave}),this.HttpUploadOptions)
+  }
 
 }
