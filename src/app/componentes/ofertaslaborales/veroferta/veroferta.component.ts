@@ -27,7 +27,10 @@ export class VerofertaComponent implements OnInit, OnDestroy {
       this.postulantes =datos.postulantes;
       console.log(this.postulantes);
       
-    })
+    }) 
+    window.onbeforeunload = () =>{ 
+      this.ngOnDestroy();
+    }
   }
 
   ngOnInit(): void {
