@@ -32,13 +32,13 @@ export class CrearOfertasComponent implements OnInit {
   }
 
   validacion(){
-    let datos:any=[{
-      "descripcion": this.formulario.get("descripcion")?.value,
-      "ubicacion": this.formulario.get("ubicacion")?.value,
-      "cargo": this.formulario.get("cargo")?.value
-    }];
+    let descripcion= this.formulario.get("descripcion")?.value
+    let ubicacion =  this.formulario.get("ubicacion")?.value
+    let cargo = this.formulario.get("cargo")?.value
+    console.log(descripcion,ubicacion,cargo );
+    
     if(sessionStorage.getItem("rutempresa") != null){
-      this.http.POSTOFERTA(datos[0],datos[1],datos[2], sessionStorage.getItem("rutempresa")).subscribe(datos =>{
+      this.http.POSTOFERTA(descripcion, ubicacion,cargo, sessionStorage.getItem("rutempresa")).subscribe(datos =>{
         if(datos.status == "ok"){
           this.mensaje = true;
           setTimeout(() =>{
@@ -47,7 +47,7 @@ export class CrearOfertasComponent implements OnInit {
         }
       })
     }else{
-      this.http.POSTOFERTA(datos[0],datos[1],datos[2],sessionStorage.getItem("rutempresa")).subscribe(datos =>{
+      this.http.POSTOFERTA(descripcion, ubicacion,cargo, sessionStorage.getItem("rutempresa")).subscribe(datos =>{
         if(datos.status == "ok"){
           this.mensaje = true;
           setTimeout(() =>{
