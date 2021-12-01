@@ -1,0 +1,26 @@
+<app-headeremp></app-headeremp>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 d-none d-md-flex side"></div>
+        <div class="col-md-10 mt-3">
+            <h1 class="mx-md-5 mx-2">Ofertas Publicadas</h1>
+            <div class="row centrado px-2">
+                <div type="button" (click)="verOferta(oferta)" class="col-10 mb-5 " *ngFor="let oferta of ofertas">
+                    <div class="card oferta px-3 ">
+                        <h2 class="card-title mx-1">{{oferta.cargo}}</h2>
+                        <div class="card-subtitle">
+                            <h5>{{oferta.empresa.nombreempresa}} | {{oferta.ubicacion}}</h5>
+                        </div>
+                        <div class="card-text">
+                            <h5 *ngIf ="selector == 0">Hace {{getTime(oferta.fechapublicacion)}} segundos</h5>
+                            <h5 *ngIf ="selector == 1">Hace {{getTime(oferta.fechapublicacion)}} minutos</h5>
+                            <h5 *ngIf ="selector == 2">Hace {{getTime(oferta.fechapublicacion)}} horas</h5>
+                            <h5 *ngIf ="selector == 3">Hace {{getTime(oferta.fechapublicacion)}} dias</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1 d-none d-md-flex side"></div>
+    </div>
+</div>

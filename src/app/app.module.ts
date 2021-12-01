@@ -34,6 +34,9 @@ import { OfertalaboralComponent } from './componentes/ofertaspro/ofertalaboral/o
 import { CrearOfertasComponent } from './componentes/ofertaslaborales/crear-ofertas/crear-ofertas.component';
 import { ModuloeditComponent } from './componentes/cursopro/moduloedit/moduloedit.component';
 import { SinpublicarComponent } from './componentes/cursopro/sinpublicar/sinpublicar.component';
+import { HomeEmpresaComponent } from './componentes/home/home-empresa/home-empresa.component';
+import { HeaderempComponent } from './componentes/header/headeremp/headeremp.component';
+import { VerofertaComponent } from './componentes/ofertaslaborales/veroferta/veroferta.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,10 @@ import { SinpublicarComponent } from './componentes/cursopro/sinpublicar/sinpubl
     OfertalaboralComponent,
     CrearOfertasComponent,
     ModuloeditComponent,
-    SinpublicarComponent
+    SinpublicarComponent,
+    HomeEmpresaComponent,
+    HeaderempComponent,
+    VerofertaComponent
   ],
   imports: [
     BrowserModule,

@@ -38,6 +38,12 @@ export class OfertaslaboralesService {
   GETOFERTAS(rut:any):Observable<any>{
     return this.http.post(`${environment.hostname}/getofertas`,JSON.stringify({"rut":rut}), this.HttpUploadOptions);
   }
+  GETSOLICITUDESEMPRESA(idoferta:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getsolicitudesempresa`,JSON.stringify({"idoferta":idoferta}), this.HttpUploadOptions);
+  }
+  GETOFERTASEMPRESA(rutempresa:any):Observable<any>{
+    return this.http.post(`${environment.hostname}/getofertasempresa`,JSON.stringify({"rutempresa":rutempresa}), this.HttpUploadOptions);
+  }
   POSTSOL(idoferta:any, rut:any):Observable<any>{
     return this.http.post(`${environment.hostname}/postsolicitud`, JSON.stringify({"rut":rut,"idoferta":idoferta}), this.HttpUploadOptions);
   }

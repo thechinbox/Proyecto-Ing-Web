@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-light-gray ">
+    <div class="left">
+      <a class="navbar-brand" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/empresa']" routerLinkActive="router-link-active">Aplicación</a>
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed=!isMenuCollapsed" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="navbarSupportedContent">
+          <span class="material-icons-outlined" style="color: white;font-size: 26px;">
+              menu
+              </span>
+      </button>
+    </div>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse right navbar-collapse centrado">
+      <ul class="navbar-nav  ">
+        <li class="nav-item mx-3 mt-1" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']"> 
+          <a class="nav-link px-4" [routerLink]="'/empresa'"  (click)="isMenuCollapsed = true">Mis Ofertas</a>
+        </li>
+        <li class="nav-item mx-3 mt-1" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active']"> 
+          <a class="nav-link px-4" [routerLink]="'/empresa/veroferta'" (click)="isMenuCollapsed = true">Ver Oferta</a>
+        </li>
+        <li class="nav-item mx-3 mt-1" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link px-4" [routerLink]="'/empresa/publicaroferta'" (click)="isMenuCollapsed = true">Crear Oferta</a>
+        </li>
+        <li class="nav-item  mx-3 mt-1">
+          <div class="usuario ">
+              <a class="nav-link active" (click)="isCollapsed2=!isCollapsed2" [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseUser">
+                  <span class="material-icons"style="color: white;">account_circle</span>
+                </a>
+    
+              <div class="collapse" id="collapseUser" [ngbCollapse]="isCollapsed2">
+                  <button class="btn btn-primary" type="button" (click)="logout()"  style="width:130px;" routerLinkActive="router-link-active">Cerrar Sesión</button>
+              </div>
+          </div>
+          
+        </li>
+      </ul>
+    </div>  
+  </nav>
+  

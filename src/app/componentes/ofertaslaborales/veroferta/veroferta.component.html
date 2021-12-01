@@ -1,0 +1,63 @@
+<app-headeremp></app-headeremp>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 side d-none d-md-flex"></div>
+        <div class="col-md-10 border-right">
+            <div class="row m-5 ">
+                <div class="col-8">
+                    <div class="row oferta">
+                        <div class="col-12 mt-5">
+                            <h1>{{oferta.cargo}}</h1>
+                            <p >Descripcion del empleo</p>
+                        </div>
+                        <p class="col-12">{{oferta.descripcion}}</p>
+                        <div class="col-4  ">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <p>{{oferta.empresa.nombreempresa}} | {{oferta.ubicacion}}</p>
+                                    <h5 *ngIf ="selector == 0">Hace {{tiempo}} segundos</h5>
+                                    <h5 *ngIf ="selector == 1">Hace {{tiempo}} minutos</h5>
+                                    <h5 *ngIf ="selector == 2">Hace {{tiempo}} horas</h5>
+                                    <h5 *ngIf ="selector == 3">Hace {{tiempo}} dias</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 clean">
+                            <button type="button" class="btn btn-lg bg-darkblue">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">RUT</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">APELLIDOS</th>
+                            <th scope="col">PAIS</th>
+                            <th scope="col">CIUDAD</th>
+                            <th scope="col">TELEFONO</th>
+                            <th scope="col">EMAIL</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let postulante of postulantes">
+                            <td scope="row">{{postulante.rut}}</td>
+                            <td>{{postulante.nombres}}</td>
+                            <td>{{postulante.apellidos}}</td>
+                            <td>{{postulante.pais}}</td>
+                            <td>{{postulante.ciudad}}</td>
+                            <td>{{postulante.telefono}}</td>
+                            <td>{{postulante.email}}</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-1 side d-none d-md-flex"></div>
+    </div>
+</div>

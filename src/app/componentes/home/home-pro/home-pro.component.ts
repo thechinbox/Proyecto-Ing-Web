@@ -17,7 +17,7 @@ export class HomeProComponent implements OnInit {
     this.cursos = new Array();
     if(sessionStorage.getItem("rutpro") == null ){
       if(localStorage.getItem("rutpro") == null){
-        this.router.navigate(['/profesional']);
+        this.router.navigate(['']);
       }
       else{
         this.http.GETCURSOSPRO(localStorage.getItem("rutpro")).subscribe(datos => {
