@@ -1,33 +1,25 @@
 h1{
     margin-top: 50px;
-    margin-left: 100px;
     font-size: xx-large;
 }
 ul{
+    max-width: 100%;
     list-style: none;
-    margin-top: 50px;
-    margin-left: 100px;
-    width: 50%;
-    height: 100px;
 }
 li{
+    max-width: 100%;
     margin-bottom: 20px;
 }
 label{
-    font-size: 20px
-}
-#ubicacion{
-    width: 300px;
+    font-size: 20px;
+    margin-left: 5%;
 }
 button{
     border: none;
     color: white;
-    padding: 30px 47px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
+    font-size: medium;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: #008CBA;
 }

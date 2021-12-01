@@ -1,47 +1,50 @@
-<app-header></app-header>
-<h1>Crea Oferta Laboral</h1>
-<form [formGroup]="formulario" (ngSubmit)="validacion()" novalidate>
-    <ul>
-        <li>
-            <label>Fecha Publicacion</label>
-            <br>
-            <input type="text" formControlName="fecha">
-            <div *ngIf="formulario.controls['fecha'].invalid && (formulario.controls['fecha'].dirty || formulario.controls['fecha'].touched)" class="alert alert-danger">
-                <div id="mensaje" *ngIf="formulario.controls['fecha'].hasError('required')">
-                    * Fecha Obligatoria
-                </div> 
+<app-headeremp></app-headeremp>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 side d-none d-md-flex"></div>
+        <div class="col-md-10 ">
+            <h1 class="centrado">Crea Oferta Laboral</h1>
+            <div class="row centrado mt-5">
+                <form [formGroup]="formulario" class="col-md-10 centrado" (ngSubmit)="validacion()" novalidate>
+                    <ul>
+                        <li>
+                            <label>Cargo</label>
+                            <br>
+                            <input placeholder="Ej: Desarrollador/a Front End" class="form-control form-control-lg" type="text" formControlName="cargo">
+                            <div *ngIf="formulario.controls['cargo'].invalid && (formulario.controls['cargo'].dirty || formulario.controls['cargo'].touched)" class="alert alert-danger">
+                                <div id="mensaje" *ngIf="formulario.controls['cargo'].hasError('required')">
+                                    * Cargo obligatorio
+                                </div> 
+                            </div>
+                        </li>
+                        <li>
+                            <label>Descripcion</label>
+                            <br>
+                            <textarea class="form-control form-control-lg"  formControlName="descripcion" rows="4" cols="50"></textarea>
+                            <div *ngIf="formulario.controls['descripcion'].invalid && (formulario.controls['descripcion'].dirty || formulario.controls['descripcion'].touched)" class="alert alert-danger">
+                                <div id="mensaje" *ngIf="formulario.controls['descripcion'].hasError('required')">
+                                    * Descripcion obligatoria
+                                </div> 
+                            </div>
+                        </li>
+                        <li>
+                            <label>Ubicacion</label>
+                            <br>
+                            <input class="form-control form-control-lg" id="ubicacion" placeholder="Ej:Valparaiso, Chile" type="text" formControlName="ubicacion" >
+                            <div *ngIf="formulario.controls['ubicacion'].invalid && (formulario.controls['ubicacion'].dirty || formulario.controls['ubicacion'].touched)" class="alert alert-danger">
+                                <div id="mensaje" *ngIf="formulario.controls['ubicacion'].hasError('required')">
+                                    * Ubicacion obligatoria
+                                </div> 
+                            </div>
+                        </li>
+                        <li class="centrado">
+                            <button class="btn btn-lg bg-darkblue" type="button">Cancel</button>
+                            <button type="button" class="btn btn-lg bg-darkblue" [disabled]="formulario.invalid">Crear</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
-        </li>
-        <li>
-            <label>Descripcion</label>
-            <br>
-            <textarea formControlName="descripcion" rows="4" cols="50"></textarea>
-            <div *ngIf="formulario.controls['descripcion'].invalid && (formulario.controls['descripcion'].dirty || formulario.controls['descripcion'].touched)" class="alert alert-danger">
-                <div id="mensaje" *ngIf="formulario.controls['descripcion'].hasError('required')">
-                    * Descripcion obligatoria
-                </div> 
-            </div>
-        </li>
-        <li>
-            <label>Ubicacion</label>
-            <br>
-            <input id="ubicacion" type="text" formControlName="ubicacion" >
-            <div *ngIf="formulario.controls['ubicacion'].invalid && (formulario.controls['ubicacion'].dirty || formulario.controls['ubicacion'].touched)" class="alert alert-danger">
-                <div id="mensaje" *ngIf="formulario.controls['ubicacion'].hasError('required')">
-                    * Ubicacion obligatoria
-                </div> 
-            </div>
-        </li>
-        <li>
-            <label>Cargo</label>
-            <br>
-            <input type="text" formControlName="cargo">
-            <div *ngIf="formulario.controls['cargo'].invalid && (formulario.controls['cargo'].dirty || formulario.controls['cargo'].touched)" class="alert alert-danger">
-                <div id="mensaje" *ngIf="formulario.controls['cargo'].hasError('required')">
-                    * Cargo obligatorio
-                </div> 
-            </div>
-        </li>
-        <li><button class="btn" type="reset">Cancel</button><button type="submit" class="btn" [disabled]="formulario.invalid">Crear</button></li>
-    </ul>
-</form>
+        </div>
+        <div class="col-1 side d-none d-md-flex"></div>
+    </div>
+</div>

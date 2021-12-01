@@ -42,7 +42,7 @@ const routes: Routes = [
   {path:'profesional/crearcurso', component:CursoproComponent},
   {path:'profesional/ofertas', component:OfertasproComponent},
   {path:'profesional/ofertas/ofertalaboral', component:OfertalaboralComponent},
-  {path:'crear-ofertas', component:CrearOfertasComponent},
+  {path:'empresa/crearoferta', component:CrearOfertasComponent},
   {path:'profesional/crearcurso', component:CursoproComponent},
   {path:'profesional/sinpublicar', component:SinpublicarComponent},
   {path:'empresa', component:HomeEmpresaComponent},
